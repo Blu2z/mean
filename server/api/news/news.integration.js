@@ -7,33 +7,33 @@ var newThing;
 
 describe('Thing API:', function() {
 
-  describe('GET /api/things', function() {
-    var things;
+  describe('GET /api/news', function() {
+    var news;
 
     beforeEach(function(done) {
       request(app)
-        .get('/api/things')
+        .get('/api/news')
         .expect(200)
         .expect('Content-Type', /json/)
         .end((err, res) => {
           if (err) {
             return done(err);
           }
-          things = res.body;
+          news = res.body;
           done();
         });
     });
 
     it('should respond with JSON array', function() {
-      things.should.be.instanceOf(Array);
+      news.should.be.instanceOf(Array);
     });
 
   });
 
-  describe('POST /api/things', function() {
+  describe('POST /api/news', function() {
     beforeEach(function(done) {
       request(app)
-        .post('/api/things')
+        .post('/api/news')
         .send({
           name: 'New Thing',
           info: 'This is the brand new thing!!!'
@@ -56,12 +56,12 @@ describe('Thing API:', function() {
 
   });
 
-  describe('GET /api/things/:id', function() {
+  describe('GET /api/news/:id', function() {
     var thing;
 
     beforeEach(function(done) {
       request(app)
-        .get('/api/things/' + newThing._id)
+        .get('/api/news/' + newThing._id)
         .expect(200)
         .expect('Content-Type', /json/)
         .end((err, res) => {
@@ -84,14 +84,14 @@ describe('Thing API:', function() {
 
   });
 
-  describe('PUT /api/things/:id', function() {
+  describe('PUT /api/news/:id', function() {
     var updatedThing;
 
     beforeEach(function(done) {
       request(app)
-        .put('/api/things/' + newThing._id)
+        .put('/api/news/' + newThing._id)
         .send({
-          name: 'Updated Thing',
+          name: 'Updated News',
           info: 'This is the updated thing!!!'
         })
         .expect(200)
@@ -110,17 +110,17 @@ describe('Thing API:', function() {
     });
 
     it('should respond with the updated thing', function() {
-      updatedThing.name.should.equal('Updated Thing');
+      updatedThing.name.should.equal('Updated News');
       updatedThing.info.should.equal('This is the updated thing!!!');
     });
 
   });
 
-  describe('DELETE /api/things/:id', function() {
+  describe('DELETE /api/news/:id', function() {
 
     it('should respond with 204 on successful removal', function(done) {
       request(app)
-        .delete('/api/things/' + newThing._id)
+        .delete('/api/news/' + newThing._id)
         .expect(204)
         .end((err, res) => {
           if (err) {
@@ -132,7 +132,7 @@ describe('Thing API:', function() {
 
     it('should respond with 404 when thing does not exist', function(done) {
       request(app)
-        .delete('/api/things/' + newThing._id)
+        .delete('/api/news/' + newThing._id)
         .expect(404)
         .end((err, res) => {
           if (err) {

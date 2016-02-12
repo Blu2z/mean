@@ -1,0 +1,44 @@
+.btn {
+	&__head {
+		position: absolute;
+		right: 7%;
+		top: 20px;
+		padding: 10px 35px 16px 0;
+		box-sizing: border-box;
+		transition-property: color, border-color, background-color;
+		transition-duration: 200ms;
+
+		&.active {
+			.btn__line {
+				background-color: transparent;
+				&:before, &:after {top: 0;}
+				&:before {
+					top: -10px;
+					transform: translatey(10px) rotate(45deg);
+				}
+				&:after {
+					transform: translatey(-10px) rotate(-45deg);
+					top: 10px;
+				}
+			}
+		}
+	}
+
+	&__line {
+		&, &:before, &:after {
+			background: #4F4F4F;
+			border-radius: 1px;
+			box-sizing: border-box;
+			content: "";
+			cursor: pointer;
+			display: block;
+			height: 3px;
+			position: absolute;
+			transition: all 300ms ease-in-out;
+			width: 35px;
+		}
+
+		&:before {top: -10px;}
+		&:after {bottom: -10px;}
+	}
+}

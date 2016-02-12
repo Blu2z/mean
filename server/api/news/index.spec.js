@@ -2,12 +2,12 @@
 
 var proxyquire = require('proxyquire').noPreserveCache();
 
-var thingCtrlStub = {
-  index: 'thingCtrl.index',
-  show: 'thingCtrl.show',
-  create: 'thingCtrl.create',
-  update: 'thingCtrl.update',
-  destroy: 'thingCtrl.destroy'
+var newsCtrlStub = {
+  index: 'newsCtrl.index',
+  show: 'newsCtrl.show',
+  create: 'newsCtrl.create',
+  update: 'newsCtrl.update',
+  destroy: 'newsCtrl.destroy'
 };
 
 var routerStub = {
@@ -19,76 +19,76 @@ var routerStub = {
 };
 
 // require the index with our stubbed out modules
-var thingIndex = proxyquire('./index.js', {
+var newsIndex = proxyquire('./index.js', {
   'express': {
     Router: function() {
       return routerStub;
     }
   },
-  './thing.controller': thingCtrlStub
+  './news.controller': newsCtrlStub
 });
 
 describe('Thing API Router:', function() {
 
   it('should return an express router instance', function() {
-    thingIndex.should.equal(routerStub);
+    newsIndex.should.equal(routerStub);
   });
 
-  describe('GET /api/things', function() {
+  describe('GET /api/news', function() {
 
-    it('should route to thing.controller.index', function() {
+    it('should route to news.controller.index', function() {
       routerStub.get
-        .withArgs('/', 'thingCtrl.index')
+        .withArgs('/', 'newsCtrl.index')
         .should.have.been.calledOnce;
     });
 
   });
 
-  describe('GET /api/things/:id', function() {
+  describe('GET /api/news/:id', function() {
 
-    it('should route to thing.controller.show', function() {
+    it('should route to news.controller.show', function() {
       routerStub.get
-        .withArgs('/:id', 'thingCtrl.show')
+        .withArgs('/:id', 'newsCtrl.show')
         .should.have.been.calledOnce;
     });
 
   });
 
-  describe('POST /api/things', function() {
+  describe('POST /api/news', function() {
 
-    it('should route to thing.controller.create', function() {
+    it('should route to news.controller.create', function() {
       routerStub.post
-        .withArgs('/', 'thingCtrl.create')
+        .withArgs('/', 'newsCtrl.create')
         .should.have.been.calledOnce;
     });
 
   });
 
-  describe('PUT /api/things/:id', function() {
+  describe('PUT /api/news/:id', function() {
 
-    it('should route to thing.controller.update', function() {
+    it('should route to news.controller.update', function() {
       routerStub.put
-        .withArgs('/:id', 'thingCtrl.update')
+        .withArgs('/:id', 'newsCtrl.update')
         .should.have.been.calledOnce;
     });
 
   });
 
-  describe('PATCH /api/things/:id', function() {
+  describe('PATCH /api/news/:id', function() {
 
-    it('should route to thing.controller.update', function() {
+    it('should route to news.controller.update', function() {
       routerStub.patch
-        .withArgs('/:id', 'thingCtrl.update')
+        .withArgs('/:id', 'newsCtrl.update')
         .should.have.been.calledOnce;
     });
 
   });
 
-  describe('DELETE /api/things/:id', function() {
+  describe('DELETE /api/news/:id', function() {
 
-    it('should route to thing.controller.destroy', function() {
+    it('should route to news.controller.destroy', function() {
       routerStub.delete
-        .withArgs('/:id', 'thingCtrl.destroy')
+        .withArgs('/:id', 'newsCtrl.destroy')
         .should.have.been.calledOnce;
     });
 

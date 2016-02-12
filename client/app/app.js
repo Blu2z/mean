@@ -4,6 +4,7 @@ angular.module('meanApp', [
   'meanApp.constants',
   'ngCookies',
   'ngResource',
+  'ngAnimate',
   'ngSanitize',
   'ui.router',
   'ui.bootstrap'

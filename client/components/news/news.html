@@ -1,0 +1,33 @@
+<div class="container container__news">
+	<h1>This is news page!</h1>
+	<p>
+		<!-- {{news.awesomeNews[0].text}} -->
+	</p>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>name</th>
+				<th>image</th>
+				<th>text</th>
+				<th>action</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<input class="form-control" ng-model="filterNews">
+			</tr>
+			<tr>
+				<td><input class="form-control" ng-model="news.testNews.name"></td>
+				<td><input class="form-control" ng-model="news.testNews.image"></td>
+				<td><input class="form-control" ng-model="news.testNews.text"></td>
+				<td><button class="btn btn-primary" ng-click="news.addNews()">Add News</button></td>
+			</tr>
+			<tr ng-repeat="oneNews in news.awesomeNews | filter:{name: filterNews}">
+				<td>{{oneNews.name}}</td>
+				<td>{{oneNews.image}}</td>
+				<td ng-bind-html="news.trustAsHtml(oneNews.text)"></td>
+				<td></td>
+			</tr>
+		</tbody>
+	</table>
+</div>

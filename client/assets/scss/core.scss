@@ -1,0 +1,174 @@
+// bower:scss
+// endbower
+
+@import "mixins";
+@import "pallete";
+@import "extends";
+@import "details";
+@import "buttons";
+
+
+
+/* include fonts */
+// @include font-face('FontAwesome', 'fontawesome-webfont', 'font-awesome');
+@include font-face('RobotoRegular', 'RobotoRegular', 'RobotoRegular');
+@include font-face('RobotoBold', 'RobotoBold', 'RobotoBold');
+@include font-face('RobotoMedium', 'RobotoMedium', 'RobotoMedium');
+@include font-face('RobotoLight', 'RobotoLight', 'RobotoLight');
+
+
+/* ==============================================
+                   DOM ELEMENTS
+ ============================================== */
+html {
+    height: 100%;
+    font-size: 15px;
+}
+body {
+    font-family: 'RobotoRegular', "Arial Regular", arial;
+    // min-height: 1808px;
+    // min-width: 1024px;
+    width: 100%;
+    // color: $clr-dark-default;
+    // background-color: $clr-body;
+    -webkit-text-size-adjust: auto;
+    // transition: top 1s ease-out 0.1s;
+}
+img {
+    max-width: 100%;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:focus {}
+
+a:hover {
+    text-decoration: none;
+   // text-decoration: underline;
+   color: $clr-red;
+}
+
+strong {
+    font-weight: bold;
+}
+
+h1, h2, h3, h4, h5 {
+    // font-family:  arial;
+    line-height: 1.5em;
+}
+h1 {
+    font-size: 32px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 20px;
+}
+h3 {
+    font-size: 16px;
+}
+h4 {
+    font-size: 15px;
+}
+h5 {
+    font-size: 14px;
+}
+
+hr {
+    border: none;
+    height: 1px;
+    margin: .7em 0;
+}
+p {
+    padding: 5px 0;
+    line-height: 1.2em;
+}
+
+.clearfix:before,
+.clearfix:after {
+content: " ";
+display: table;
+}
+.clearfix:after {
+visibility: hidden;
+        display: block;
+        content: "";
+        clear: both;
+        height: 0;
+        
+}
+.clearfix {
+*zoom: 1;
+}
+.slider-fix {
+    position: absolute;
+    width: 100%;
+}
+
+.hidden {
+    display: none;
+}
+
+.v-hidden{
+    visibility: hidden;
+}
+label {
+    line-height: 2em;
+}
+
+textarea,
+input[type="password"],
+input[type="text"],
+input[type="phone"],
+input[type="email"] {
+    border: 1px solid rgba(0, 0, 0, 0.50);
+    padding: 10px;
+    box-sizing: border-box;
+    width: 100%;
+    height: 40px;
+    &:focus {
+         outline: 0;
+    }
+}
+
+input[type="checkbox"] {
+    display:none;
+}
+input[type="checkbox"] + label:before {
+    content: ' ';
+    cursor:pointer;
+    display:inline-block;
+}
+input[type="checkbox"] + label {
+    cursor: pointer;
+}
+
+strong {
+    font-family: 'RobotoBold';
+}
+
+.container {
+    margin: 0 auto;
+    // padding-top: 100px;
+    // max-width: 1300px;
+    position: relative;
+    overflow: hidden;
+}
+
+@media screen and (max-width: 1065px) {
+    .container {
+        padding-top: 70px;
+    }
+}
+
+.preloader {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: #fff url(/images/719.GIF) 50% 50% no-repeat;
+    z-index: 5;
+}

@@ -1,16 +1,16 @@
 /**
  * Using Rails-like standard naming convention for endpoints.
- * GET     /api/things              ->  index
- * POST    /api/things              ->  create
- * GET     /api/things/:id          ->  show
- * PUT     /api/things/:id          ->  update
- * DELETE  /api/things/:id          ->  destroy
+ * GET     /api/news              ->  index
+ * POST    /api/news              ->  create
+ * GET     /api/news/:id          ->  show
+ * PUT     /api/news/:id          ->  update
+ * DELETE  /api/news/:id          ->  destroy
  */
 
 'use strict';
 
 import _ from 'lodash';
-import Thing from './thing.model';
+import Thing from './news.model';
 
 function respondWithResult(res, statusCode) {
   statusCode = statusCode || 200;

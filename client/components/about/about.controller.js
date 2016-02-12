@@ -3,11 +3,13 @@
 class AboutController {
 
   constructor($http) {
-    this.$http = $http;
-    this.awesomeThings = [];
+    var about = this;
+
+    about.$http = $http;
+    about.awesomeThings = [];
 
     $http.get('/api/things').then(response => {
-      this.awesomeThings = response.data;
+      about.awesomeThings = response.data;
     });
   }
 }

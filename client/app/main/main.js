@@ -19,5 +19,16 @@ angular.module('meanApp')
         templateUrl: 'components/about/about.html',
         controller: 'AboutController',
         controllerAs: 'about'
-      });;
+      })
+      .state('news', {
+        url: '/news',
+        resolve: {
+          $title: function() { 
+            return "News";
+          }
+        },
+        templateUrl: 'components/news/news.html',
+        controller: 'NewsController',
+        controllerAs: 'news'
+      });
   });
