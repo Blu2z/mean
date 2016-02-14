@@ -30,5 +30,16 @@ angular.module('meanApp')
         templateUrl: 'components/news/news.html',
         controller: 'NewsController',
         controllerAs: 'news'
+      })
+      .state('admin', {
+        url: '/admin',
+        resolve: {
+          $title: function() { 
+            return "News";
+          }
+        },
+        templateUrl: 'components/admin/admin.html',
+        controller: 'AdminController',
+        controllerAs: 'admin'
       });
   });

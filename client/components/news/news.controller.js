@@ -2,7 +2,7 @@
 
 class NewsController {
 
-  constructor($http, $sce) {
+  constructor($http, $sce, Notification) {
     var news = this;
 
     news.$http = $http;
@@ -13,23 +13,33 @@ class NewsController {
     });
 
     news.trustAsHtml = $sce.trustAsHtml;
+    news.notification = Notification;
 
   }
 
   addNews() {
-      console.log(this.testNews);
+      console.log(this);
       if (this.testNews) {
 
         this.$http.post('/api/news', { 
           name: this.testNews.name,
           text: this.testNews.text,
           image: this.testNews.image
+
         }).success(response => {
-          console.debug(response);
+
           this.awesomeNews.unshift(response);
+          this.notification.success({message: 'Данные успешно добавлены в базу!', delay: 1500});
+          this.testNews = '';
+
+        }).error(response => {
+
+          this.notification.error({message: 'Ошибка соединения!', delay: 2500});
+          this.testNews = '';
+          
         });
 
-        this.testNews = '';
+        
       }
     }
 

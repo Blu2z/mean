@@ -13,11 +13,15 @@ import methodOverride from 'method-override';
 import cookieParser from 'cookie-parser';
 import errorHandler from 'errorhandler';
 import path from 'path';
-import lusca from 'lusca';
+// import lusca from 'lusca';
 import config from './environment';
 import session from 'express-session';
 import connectMongo from 'connect-mongo';
 import mongoose from 'mongoose';
+import passport from 'passport';
+
+require('./passport')(passport);
+
 var mongoStore = connectMongo(session);
 
 export default function(app) {
@@ -32,6 +36,8 @@ export default function(app) {
   app.use(methodOverride());
   app.use(cookieParser());
 
+
+
   // Persist sessions with mongoStore / sequelizeStore
   // We need to enable sessions for passport-twitter because it's an
   // oauth 1.0 strategy, and Lusca depends on sessions
@@ -45,23 +51,26 @@ export default function(app) {
     })
   }));
 
+  app.use(passport.initialize());
+  app.use(passport.session()); // persistent login sessions
+
   /**
    * Lusca - express server security
    * https://github.com/krakenjs/lusca
    */
   if ('test' !== env) {
-    app.use(lusca({
-      csrf: {
-        angular: true
-      },
-      xframe: 'SAMEORIGIN',
-      hsts: {
-        maxAge: 31536000, //1 year, in seconds
-        includeSubDomains: true,
-        preload: true
-      },
-      xssProtection: true
-    }));
+    // app.use(lusca({
+    //   csrf: {
+    //     angular: true
+    //   },
+    //   xframe: 'SAMEORIGIN',
+    //   hsts: {
+    //     maxAge: 31536000, //1 year, in seconds
+    //     includeSubDomains: true,
+    //     preload: true
+    //   },
+    //   xssProtection: true
+    // }));
   }
 
   app.set('appPath', path.join(config.root, 'client'));

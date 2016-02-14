@@ -1,0 +1,63 @@
+.admin__login {
+	width: 320px;
+	margin: 50px auto 150px;
+}
+
+input[type="checkbox"] {
+    display:none;
+}
+input[type="checkbox"] + label:before {
+    content: ' ';
+    cursor:pointer;
+    display:inline-block;
+}
+input[type="checkbox"] + label {
+    cursor: pointer;
+}
+
+input[type="checkbox"] + label:before {
+	content: ' ';
+	cursor:pointer;
+	display:inline-block;
+	vertical-align: middle;
+	height: 12px;
+	width: 12px;
+	border: 1px solid #333;
+	margin-right: 10px;
+	line-height: 14px;
+}
+
+input[type="checkbox"]:checked + label:before {
+	font-family: 'FontAwesome';
+	content: '\f00c';
+	background-origin: content-box;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.contact-form .admin__remember {
+	line-height: 16px;
+	vertical-align: middle;
+}
+
+.reset-pass {
+	/*text-transform: uppercase;*/
+	font-size: 11px;
+	text-decoration: underline;
+	float: right;
+	margin-top: -10px;
+}
+
+.admin__login + .slider__work {
+	display: none;
+}
+
+body {
+	position: relative;
+}
+footer {
+	position: absolute;
+	width: 100%;
+	top: 80%;
+}
+

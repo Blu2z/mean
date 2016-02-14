@@ -6,6 +6,8 @@
 'use strict';
 import Thing from '../api/thing/thing.model';
 import News from '../api/news/news.model';
+import Admin from '../api/admin/admin.model';
+// import User from '../api/user/user.model';
 
 Thing.find({}).removeAsync()
   .then(() => {
@@ -78,3 +80,18 @@ News.find({}).removeAsync()
     });
   });
 
+Admin.find({}).removeAsync()
+  .then(() => {
+    Admin.create({
+      name: 'Alexander',
+      text: 'Blu2z',
+      image: '/assets/images/test.jpg'
+    });
+  });
+
+// User.find({}).removeAsync()
+//   .then(() => {
+//     User.create({
+//       'url' : 'mongodb://<blu2z>:<1234>@mongo.onmodulus.net:27017/Mikha4ot' // looks like mongodb://<user>:<pass>@mongo.onmodulus.net:27017/Mikha4ot
+//     });
+//   });
