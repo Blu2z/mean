@@ -39,20 +39,25 @@ export default function(app) {
 
   app.post('/login', function(req, res, next) {
     passport.authenticate('local-login', function(err, user, info) {
-      if (err) { return next(err); }
-      if (!user) { return res.send('/login'); }
+
+      if (err) return next(err); 
+      if (!user) return res.send({"error": err});
+
       req.logIn(user, function(err) {
-        if (err) { return next(err); }
+
+        if (err) { return res.send({"error": err}) }
+
         return res.send({"isAdmin": true});
+
       });
     })(req, res, next);
   });
 
 
-  app.route('/login')
-  .get((req, res) => {
-    res.sendFile(path.resolve(app.get('appPath') + '/login.html'));
-  });
+  // app.route('/login')
+  // .get((req, res) => {
+  //   res.sendFile(path.resolve(app.get('appPath') + '/login.html'));
+  // });
 
   app.route('/singup')
   .get((req, res) => {

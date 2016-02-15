@@ -20,8 +20,10 @@ $fa-font-path: "../bower_components/font-awesome/fonts";
 // injector
 @import 'main/main';
 @import '../components/about/about';
+@import '../components/admin-panel/admin-panel';
 @import '../components/admin/admin';
 @import '../components/footer/footer';
+@import '../components/login/login';
 @import '../components/modal/modal';
 @import '../components/navbar/navbar';
 @import '../components/news/news';

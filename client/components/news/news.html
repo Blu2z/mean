@@ -1,33 +1,25 @@
 <div class="container container__news">
-	<h1>This is news page!</h1>
-	<p>
-		<!-- {{news.awesomeNews[0].text}} -->
-	</p>
-	<table class="table">
-		<thead>
-			<tr>
-				<th>name</th>
-				<th>image</th>
-				<th>text</th>
-				<th>action</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<input class="form-control" ng-model="filterNews">
-			</tr>
-			<tr>
-				<td><input class="form-control" ng-model="news.testNews.name"></td>
-				<td><input class="form-control" ng-model="news.testNews.image"></td>
-				<td><input class="form-control" ng-model="news.testNews.text"></td>
-				<td><button class="btn btn-primary" ng-click="news.addNews()">Add News</button></td>
-			</tr>
-			<tr ng-repeat="oneNews in news.awesomeNews | filter:{name: filterNews}">
-				<td>{{oneNews.name}}</td>
-				<td>{{oneNews.image}}</td>
-				<td ng-bind-html="news.trustAsHtml(oneNews.text)"></td>
-				<td></td>
-			</tr>
-		</tbody>
-	</table>
+<h1>
+	<span class="content__head">Новости</span>
+</h1>
+<div class="content__block" ng-repeat="oneNews in news.awesomeNews">
+	<div class="content__title">{{oneNews.name}}</div>
+	<div class="content__img">
+		<div class="carousel carousel--big">
+			 <div class="item">
+				<a class="fancybox" rel="group1" href="./images/news1/Akris-620x930.jpg">
+					<img ng-src="{{oneNews.image}}" alt="foto">
+				</a>
+			</div>
+		</div>
+	</div>
+	<div class="content__text">
+		<div class="contact__desc">
+			<p ng-bind-html="news.trustAsHtml(oneNews.text)"></p>
+		</div>
+		<!-- <div class="content__more">
+			<a class="content__link" href="#">читать далее</a>
+		</div> -->
+	</div>
+</div>
 </div>

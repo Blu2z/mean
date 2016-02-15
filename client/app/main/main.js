@@ -31,15 +31,37 @@ angular.module('meanApp')
         controller: 'NewsController',
         controllerAs: 'news'
       })
+      .state('login', {
+        url: '/login',
+        resolve: {
+          $title: function() { 
+            return "LogIn";
+          }
+        },
+        templateUrl: 'components/login/login.html',
+        controller: 'LoginController',
+        controllerAs: 'login'
+      })
       .state('admin', {
         url: '/admin',
         resolve: {
           $title: function() { 
-            return "News";
+            return "Admin-panel";
           }
         },
         templateUrl: 'components/admin/admin.html',
         controller: 'AdminController',
         controllerAs: 'admin'
+      })
+      .state('admin.newsedit', {
+        url: '/news',
+        resolve: {
+          $title: function() { 
+            return "Admin-panel";
+          }
+        },
+        templateUrl: 'components/admin/news/news.html',
+        controller: 'AdminNewsController',
+        controllerAs: 'news'
       });
   });

@@ -11,10 +11,6 @@ class AboutController {
 
     $http.get('/api/things').then(response => {
       about.awesomeThings = response.data;
-      console.debug(response.data.isAdmin);
-      if(!response.data.isAdmin) {
-      	about.notification.error({message: 'Необходима авторизация!', delay: 2500});
-      };
     });
   }
 }

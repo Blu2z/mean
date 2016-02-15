@@ -2,8 +2,10 @@
 
 class AdminController {
 
-  constructor($http, Notification) {
+  constructor($http, Notification, $state) {
     var admin = this;
+
+    console.debug('AdminController is loaded!');
 
     admin.$http = $http;
     admin.data = [];
@@ -17,6 +19,7 @@ class AdminController {
         console.debug(response);
         if(response.data.notAdmin) {
           admin.notification.error({message: 'Необходима авторизация!', delay: 2500});
+          $state.go('login');
         };
       });
     }
@@ -37,11 +40,11 @@ class AdminController {
               this.notification.success({message: 'Добро пожаловать!', delay: 1500});
               this.getData();
             } else {
-              this.notification.error({message: response.data.error, delay: 2500});
+              this.notification.error({message: response.error, delay: 2500});
             }
         }).error(response => {
           console.debug(response);
-          this.notification.error({message: 'Ошибка соединения!', delay: 2500});
+          this.notification.error({message: response ? response : 'Ошибка соединения!', delay: 2500});
           this.testNews = '';
         });
       }

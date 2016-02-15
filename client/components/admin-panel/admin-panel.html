@@ -1,0 +1,16 @@
+<aside>
+  <nav class="admin-panel">
+    <div class="panel__title">
+      <div class="logo--img">
+        <a href="/">
+          <img src="assets/images/logo.png" height="50" width="140" alt="logo">
+        </a>
+      </div>
+    </div>
+    <ul>
+      <li ng-repeat="item in admin.menu" ui-sref-active="active">
+        <a ui-sref="{{item.state}}">{{item.title}}</a>
+      </li>
+    </ul>
+  </nav>
+</aside>
