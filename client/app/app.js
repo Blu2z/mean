@@ -2,13 +2,15 @@
 
 angular.module('meanApp', [
   'meanApp.constants',
+  'meanApp.config',
   'ngCookies',
   'ngResource',
   'ngAnimate',
   'ngSanitize',
   'ui.router',
   'ui.bootstrap',
-  'ui-notification'
+  'ui-notification',
+  'textAngular'
 ])
   .config(function($urlRouterProvider, $locationProvider) {
     $urlRouterProvider

@@ -23,3 +23,20 @@
 .modal-danger .modal-header {
   background: $brand-danger;
 }
+
+.modal-ask {
+	float: left;
+	margin: 0;
+}
+
+.modal-ask input[type="checkbox"] {
+	display: inline-block;
+	margin-top: 8px;
+}
+
+@media (min-width: 768px) {
+	.modal-edit .modal-dialog {
+	    width: 60%;
+	    margin: 30px auto;
+	}
+}
