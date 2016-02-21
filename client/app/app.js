@@ -2,7 +2,6 @@
 
 angular.module('meanApp', [
   'meanApp.constants',
-  'meanApp.config',
   'ngCookies',
   'ngResource',
   'ngAnimate',
@@ -10,7 +9,10 @@ angular.module('meanApp', [
   'ui.router',
   'ui.bootstrap',
   'ui-notification',
-  'textAngular'
+  'textAngular',
+  'meanApp.util',
+  'ui.fancybox',
+  'meanApp.config',
 ])
   .config(function($urlRouterProvider, $locationProvider) {
     $urlRouterProvider
@@ -28,4 +30,4 @@ angular.module('meanApp', [
       positionX: 'right', 
       positionY: 'bottom' 
     }); 
-  });;
+  });

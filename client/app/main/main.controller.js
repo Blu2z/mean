@@ -8,6 +8,8 @@ class MainController {
     this.$http = $http;
     this.awesomeThings = [];
 
+    console.debug('MainController is loaded!');
+
     $http.get('/api/things').then(response => {
       this.awesomeThings = response.data;
     });

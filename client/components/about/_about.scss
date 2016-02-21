@@ -4,7 +4,7 @@
 	position: relative;
 	padding: 15px 3% 50px;
 	box-sizing: border-box;
-	// margin-top: 105px;
+	margin-top: 105px;
 	text-align: center;
 
 	p{
@@ -53,12 +53,12 @@
 
 	&__btn {
 		text-align: right;
-		margin-bottom: -40px;
+		margin-bottom: 25px;
 	}
 }
 
 .map {
-	height: 440px;
+	height: 500px;
 
 	&__wrap {
 		margin-bottom: 24px;
@@ -76,7 +76,7 @@
 	label {
 		text-transform: uppercase;
 		font: 11px/2em 'RobotoRegular';
-		width: 50px;
+		// width: 50px;
 	}
 
 	textarea {

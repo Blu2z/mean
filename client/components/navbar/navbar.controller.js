@@ -20,6 +20,7 @@ class NavbarController {
   //end-non-standard
 
   constructor() {
+    console.debug('NavbarController is loaded!');
     }
 }
 

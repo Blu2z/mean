@@ -2,14 +2,15 @@
 
 class LoginController {
 
-  constructor($http, Notification, $state) {
+  constructor($http, Notification, $state, $rootScope) {
     var login = this;
 
     console.debug('LoginController is loaded!');
 
     login.$http = $http;
     login.$state = $state; 
-    login.notification = Notification;  
+    login.notification = Notification;
+    login.$rootScope = $rootScope;
   }
 
   authorization() {
@@ -24,6 +25,7 @@ class LoginController {
             if(response.isAdmin) {
               this.notification.success({message: 'Добро пожаловать!', delay: 1500});
               this.$state.go('admin');
+              this.$rootScope.isAdmin = 1;
             } else {
               this.notification.error({message: response.error, delay: 2500});
             }

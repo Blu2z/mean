@@ -27,24 +27,15 @@ angular.module('meanApp')
     return {
       create: {
 
-        /**
-         * Create a function to open a delete confirmation modal (ex. ng-click='myModalFn(name, arg1, arg2...)')
-         * @param  {Function} del - callback, ran when delete is confirmed
-         * @return {Function}     - the function to open the modal (ex. myModalFn)
-         */
         edit(ed = angular.noop) {
-          /**
-           * Open a delete confirmation modal
-           * @param  {String} name   - name or info to show on modal
-           * @param  {All}           - any additional args are passed straight to del callback
-           */
+
           return function() {
             var args = Array.prototype.slice.call(arguments),
                 name = args.shift(),
                 text = args.shift(),
-                deleteModal;
+                editModal;
 
-            deleteModal = openModal({
+            editModal = openModal({
               modal: {
                 dismissable: true,
                 title: 'Редактировать новость',
@@ -60,14 +51,14 @@ angular.module('meanApp')
                   classes: 'btn-success',
                   text: 'Сохранить',
                   click: function(e) {
-                    deleteModal.close(e);
+                    editModal.close(e);
                   }
                 }]
               }
             }, 'modal-warning modal-edit', 'components/modal/modal2.html');
 
-            deleteModal.result.then(function(event) {
-              del.apply(event, args);
+            editModal.result.then(function(event) {
+              ed.apply(event, args);
             });
           };
         }
