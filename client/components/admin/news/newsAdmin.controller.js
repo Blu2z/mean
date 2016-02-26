@@ -19,6 +19,9 @@ class AdminNewsController {
       $http.get('/api/news').then(response => {
         news.awesomeNews = response.data;
         // console.debug(response.data);
+      },
+      response => {
+        this.notification.error({message: 'Ошибка соединения!', delay: 2500});
       });
     }
 
