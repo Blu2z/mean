@@ -42,6 +42,10 @@
   margin-top: 10px;
 }
 
+.modal-edit .modal-dialog {
+  max-height: 100%;
+}
+
 @media (min-width: 768px) {
 	.modal-edit .modal-dialog {
 	    width: 60%;

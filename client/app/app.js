@@ -12,7 +12,7 @@ angular.module('meanApp', [
   'textAngular',
   'meanApp.util',
   'ui.fancybox',
-  'meanApp.config',
+  'meanApp.config'
 ])
   .config(function($urlRouterProvider, $locationProvider) {
     $urlRouterProvider

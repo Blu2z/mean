@@ -6,10 +6,12 @@ angular.module('meanApp')
      * Opens a modal
      * @param  {Object} scope      - an object to be merged with modal's scope
      * @param  {String} modalClass - (optional) class(es) to be applied to the modal
+     * @param  {String} template   - path to template
+     * @param  {boolean|string}    - Controls presence of a backdrop. 'static' - disables modal closing by click on the backdrop.
      * @return {Object}            - the instance $modal.open() returns
      */
 
-    function openModal(scope = {}, modalClass = 'modal-default', template = 'components/modal/modal.html') {
+    function openModal(scope = {}, modalClass = 'modal-default', template = 'components/modal/modal.html', backdrop = true) {
       var modalScope = $rootScope.$new();
       
       modalScope.check = $rootScope.askModal;
@@ -19,7 +21,8 @@ angular.module('meanApp')
       return $modal.open({
         templateUrl: template,
         windowClass: modalClass,
-        scope: modalScope
+        scope: modalScope,
+        backdrop: backdrop
       });
     }
 
@@ -35,10 +38,18 @@ angular.module('meanApp')
            * @param  {All}           - any additional args are passed straight to del callback
            */
           return function() {
+            console.log(arguments);
+
             var args = Array.prototype.slice.call(arguments),
                 name = args.shift(),
                 text = args.shift(),
-                editModal;
+                id = args.shift(),
+                editModal,
+                data = {};
+
+                data.id = id;
+
+                // console.log(arguments);
 
             editModal = openModal({
               modal: {
@@ -55,17 +66,21 @@ angular.module('meanApp')
                 buttons: [{
                   classes: 'btn-success',
                   text: 'Сохранить',
-                  click: function(e) {
+                  click: function(e, modal) {
                     editModal.close(e);
-                    console.log(name);
-                    // return modal.text
+                    // console.debug(modal);
+                    data.text = modal.text;
+                    data.name = modal.name;
+                    // return data;
                   }
                 }]
               }
-            }, 'modal-warning modal-edit', 'components/modal/modal2.html');
+            }, 'modal-warning modal-edit', 'components/modal/modal2.html', 'static');
 
             editModal.result.then(function(event) {
-              ed.apply(event, args);
+              console.log(data);
+              // return data;
+              ed.apply(data, args);
             });
           };
         }
