@@ -29,16 +29,15 @@ angular.module('meanApp')
 
         edit(ed = angular.noop) {
 
-          /**
-           * Open a delete confirmation modal
-           * @param  {String} name   - name or info to show on modal
-           * @param  {All}           - any additional args are passed straight to del callback
-           */
           return function() {
             var args = Array.prototype.slice.call(arguments),
                 name = args.shift(),
                 text = args.shift(),
+<<<<<<< HEAD
+               editModal;
+=======
                 editModal;
+>>>>>>> eed42a8d5566b71291080a622321c995cd7bee89
 
             editModal = openModal({
               modal: {
@@ -57,8 +56,11 @@ angular.module('meanApp')
                   text: 'Сохранить',
                   click: function(e) {
                     editModal.close(e);
+<<<<<<< HEAD
                     console.log(name);
                     // return modal.text
+=======
+>>>>>>> eed42a8d5566b71291080a622321c995cd7bee89
                   }
                 }]
               }

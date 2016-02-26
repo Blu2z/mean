@@ -2,12 +2,12 @@
 <h1>
 	<span class="content__head">Новости</span>
 </h1>
-<div class="content__block" ng-repeat="oneNews in news.awesomeNews">
+<div class="content__block clearfix" ng-repeat="oneNews in news.awesomeNews">
 	<div class="content__title">{{oneNews.name}}</div>
 	<div class="content__img">
 		<div class="carousel carousel--big">
 			 <div class="item">
-				<a class="fancybox" rel="group1" href="./images/news1/Akris-620x930.jpg">
+				<a class="fancybox" ui-Fancybox rel="group1" href="{{oneNews.image}}">
 					<img ng-src="{{oneNews.image}}" alt="foto">
 				</a>
 			</div>
