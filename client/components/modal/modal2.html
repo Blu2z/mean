@@ -4,7 +4,18 @@
 </div>
 <div class="modal-body">
   <p ng-if="modal.name" ng-bind="modal.name"></p>
-  <text-angular name="htmlcontent2" ng-model="modal.text" ta-disabled="disabled"></text-angular>
+  <input class="form-control" ng-model="modal.name">
+  <div class="text__toolbar">
+  	<text-angular 
+  	name="htmlcontent2" 
+  	ng-model="modal.text" 
+  	ta-disabled="disabled" 
+  	ta-toolbar="[['h2', 'h3', 'h4', 'h5', 'h6', 'p', 'pre', 'quote'],
+                ['bold', 'italics', 'underline', 'ul', 'ol', 'redo', 'undo', 'clear'],
+                ['justifyLeft','justifyCenter','justifyRight', 'justifyFull'],
+                ['html', 'insertLink', 'wordcount', 'charcount']]">
+   </text-angular>
+  </div>
   <div ng-if="modal.html" ng-bind-html="modal.html"></div>
 </div>
 <div class="modal-footer">

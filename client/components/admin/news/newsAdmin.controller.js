@@ -34,14 +34,14 @@ class AdminNewsController {
     news.getData();
   }
 
-  addNews() {
+  addNews(name, text, image) {
     console.log(this);
     if (this.testNews) {
 
       this.$http.post('/api/news', { 
-        name: this.testNews.name,
-        text: this.testNews.text,
-        image: this.testNews.image
+        name: this.name,
+        text: this.text,
+        image: this.image
 
       }).success(response => {
         console.debug(response);
@@ -89,7 +89,8 @@ class AdminNewsController {
           console.debug(response);
           this.testNews = response;
           (this.modal.create.edit( id => {
-            this.deleteNews(id)
+            console.log(response);
+            // this.addNews(id)
           }))(response.name, response.text);
         }
       })

@@ -42,9 +42,9 @@ angular.module('meanApp')
             var args = Array.prototype.slice.call(arguments),
                 name = args.shift(),
                 text = args.shift(),
-                deleteModal;
+               editModal;
 
-            deleteModal = openModal({
+            editModal = openModal({
               modal: {
                 dismissable: true,
                 title: 'Редактировать новость',
@@ -60,14 +60,16 @@ angular.module('meanApp')
                   classes: 'btn-success',
                   text: 'Сохранить',
                   click: function(e) {
-                    deleteModal.close(e);
+                    editModal.close(e);
+                    console.log(name);
+                    // return modal.text
                   }
                 }]
               }
             }, 'modal-warning modal-edit', 'components/modal/modal2.html');
 
-            deleteModal.result.then(function(event) {
-              del.apply(event, args);
+            editModal.result.then(function(event) {
+              ed.apply(event, args);
             });
           };
         }
