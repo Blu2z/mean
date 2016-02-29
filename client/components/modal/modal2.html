@@ -1,23 +1,77 @@
 <div class="modal-header">
-  <button ng-if="modal.dismissable" type="button" ng-click="$dismiss()" class="close">&times;</button>
-  <h4 ng-if="modal.title" ng-bind="modal.title" class="modal-title"></h4>
+	<button ng-if="modal.dismissable" type="button" ng-click="$dismiss()" class="close">&times;</button>
+	<h4 ng-if="modal.title" ng-bind="modal.title" class="modal-title"></h4>
 </div>
 <div class="modal-body">
-  <p ng-if="modal.name" ng-bind="modal.name"></p>
-  <input class="form-control" ng-model="modal.name">
-  <div class="text__toolbar">
-  	<text-angular 
-  	name="htmlcontent2" 
-  	ng-model="modal.text" 
-  	ta-disabled="disabled" 
-  	ta-toolbar="[['h2', 'h3', 'h4', 'h5', 'h6', 'p', 'pre', 'quote'],
-                ['bold', 'italics', 'underline', 'ul', 'ol', 'redo', 'undo', 'clear'],
-                ['justifyLeft','justifyCenter','justifyRight', 'justifyFull'],
-                ['html', 'insertLink', 'wordcount', 'charcount']]">
-   </text-angular>
-  </div>
-  <div ng-if="modal.html" ng-bind-html="modal.html"></div>
+
+	<tabset justified="true">
+		<tab heading="Текст">
+			<p ng-if="modal.name" ng-bind="modal.name"></p>
+			<input class="form-control" ng-model="modal.name">
+			<div class="text__toolbar">
+				<text-angular 
+				name="htmlcontent2" 
+				ng-model="modal.text" 
+				ta-disabled="disabled" 
+				ta-toolbar="[['h2', 'h3', 'h4', 'h5', 'h6', 'p', 'pre', 'quote'],
+				['bold', 'italics', 'underline', 'ul', 'ol', 'redo', 'undo', 'clear'],
+				['justifyLeft','justifyCenter','justifyRight', 'justifyFull'],
+				['html', 'insertLink', 'wordcount', 'charcount']]">
+			</text-angular>
+		</div>
+		<div ng-if="modal.html" ng-bind-html="modal.html"></div>
+	</tab>
+	<tab heading="Изображения">
+
+		<div class="test" ng-controller="UploadsController">
+			<div class="album">
+      <div class="file-button-area">
+          <input type="file" class="file-input" multiple="multiple" oi-file="uploadoptions">
+      </div>
+      <div class="error-area">
+          <div class="alert alert-error" ng-show="errors.length">              
+              <button class="close" ng-click="errors.length=0">&times;</button>
+              <span ng-repeat="error in errors | unique">{{error.msg}}<br/></span>
+          </div>
+      </div>
+      <div ng-show="uploading.length">
+        <div class="progress">
+          <div class="bar" ng-style="{'width': uploading.progress+'%'}"></div>
+        </div>
+      </div>
+      <ul class="upload-area" oi-file="uploadoptions" ui-sortable="{stop: sort}" ng-class="dropClass" ng-model="items">
+          <li class="file-item" ng-repeat="item in items">
+              <button type="button" class="close" ng-click="del($index, abort())">&times;</button>
+              <a href="http://tamtakoe.ru/uploader/{{item.image}}" ui-fancybox title="№ {{item.id}} <a href='http://tamtakoe.ru/uploader/{{item.original}}'>оригинал</a>">
+              	<img class="file-item-img" ng-src="http://tamtakoe.ru/uploader/{{item.thumb}}">
+              </a>
+              <div ng-show="item.uploading">
+                  <div class="progress">
+                      <div class="bar" ng-style="{'width': item.progress+'%'}"></div>
+                  </div>
+              </div>
+          </li>
+      </ul>
+      Можно перетаскивать на серую область
+    </div>
+		</div>
+		 
+
+	</tab>
+
+	<tab heading="еще">
+			<form method="post" action="/api/news" enctype="multipart/form-data" >
+    		<p>Image: <input type="file" name="image" /></p>
+    		<p><input type="submit" value="Upload" /></p>
+  		</form>
+	</tab>
+</tabset>
+
+
+
 </div>
+
+
 <div class="modal-footer">
-  <button ng-repeat="button in modal.buttons" ng-class="button.classes" ng-click="button.click($event, modal)" ng-bind="button.text" class="btn"></button>
+	<button ng-repeat="button in modal.buttons" ng-class="button.classes" ng-click="button.click($event, modal)" ng-bind="button.text" class="btn"></button>
 </div>

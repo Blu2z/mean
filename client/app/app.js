@@ -12,7 +12,11 @@ angular.module('meanApp', [
   'textAngular',
   'meanApp.util',
   'ui.fancybox',
-  'meanApp.config'
+  'meanApp.config',
+  'oi.file',
+  'oi.list',
+  'ngResource',
+  'ui.sortable', 'ui.filters', 'ui.focusblur'
 ])
   .config(function($urlRouterProvider, $locationProvider) {
     $urlRouterProvider
