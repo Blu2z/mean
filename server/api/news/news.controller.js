@@ -117,6 +117,7 @@ export function create(req, res) {
 
     // при поступление файла
     form.on('part', function(part) {
+        if(!uploadFile) console.log('file is not exist!');
         //читаем его размер в байтах
         uploadFile.size = part.byteCount;
         //читаем его тип
