@@ -67,27 +67,25 @@
 	</tab>
 
 <tab heading="новое">
-  <div class="" ng-controller="ProfilePicController">
+  <div class="" ng-controller="ProfilePicController as crop">
     <h3>Profile Pic</h3>
     <!-- <img ng-src="{{ P.imageSrc }}" alt="foto" class="aj-crop"> -->
     <input 
       type="file" 
       accept="image/*" 
       capture="camera" 
-      aj-file-select="P.onFileSelect($files)" 
       aj-change="crop.getFile($files)" 
-      aj-model="P.file"
-      ng-model="test"
-      ng-click="crop.getFile2()" 
-      class="ng-scope ng-isolate-scope">
+      aj-model="crop.file"
+      aj-file-select
+      ng-model="test"> 
 
     <button class="btn btn-primary" ng-click="crop.getFile2()">Crop</button>
 
     <h3 class="ng-scope">Crop</h3>
     <img-cropped src="imageSrc" selected="selected(cords)" class="ng-scope ng-isolate-scope"></img-cropped>
     <h3 class="ng-scope">Div Preview
-      <div id="cropped-image" ng-show="cropped" ng-style="{ width: P.picWidth + 'px', height: P.picHeight + 'px', overflow: 'hidden' }" class="ng-hide" style="overflow: hidden;">
-        <img id="preview" ng-src="">
+      <div id="cropped-image" ng-show="cropped" ng-style="{ width: crop.picWidth + 'px', height: crop.picHeight + 'px', overflow: 'hidden' }" style="overflow: hidden;">
+        <img id="preview" ng-src="{{ crop.imageSrc }}">
       </div>
     </h3>
     <h4 class="ng-scope">Canvas Preview</h4>

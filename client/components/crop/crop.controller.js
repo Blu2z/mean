@@ -10,12 +10,13 @@ class ProfilePicController {
     crop.getFile2 = function() {console.debug('click!');};
 
     crop.file = {};
+
     crop.getFile = function () {
       console.log('getFile() called.');
-      console.log(scope.ajModel);
-      console.log(scope.file);
-      $scope.progress = 0;
-      fileReader.readAsDataUrl(scope.file.file, $scope).then(function (result) {
+      console.log(crop.ajModel);
+      console.log(crop.file);
+
+      fileReader.readAsDataUrl(crop.file.file, $scope).then(function (result) {
         console.log('readAsDataUrl: result.length === ', result.length);
         //console.log(result);
         crop.imageSrc = result;
@@ -25,10 +26,6 @@ class ProfilePicController {
         });
       });
     };
-
-    $scope.$on("fileProgress", function(e, progress) {
-      $scope.progress = progress.loaded / progress.total;
-    });
 
     crop.initJcrop = function () {
       console.log('init jcrop');
@@ -58,29 +55,32 @@ class ProfilePicController {
       crop.picWidth = cords.w;
       crop.picHeight = cords.h;
 
+      console.log(crop.picWidth);
+      console.log(crop.picHeight);
+
       console.log('scale');
-      if (scope.picWidth > 400) {
-        scale = (400 / scope.picWidth);
-        console.log(scope.picHeight);
+      if (crop.picWidth > 400) {
+        scale = (400 / crop.picWidth);
+        console.log(crop.picHeight);
         crop.picHeight *= scale;
         crop.picWidth *= scale;
         console.log(scale);
       }
 
-      if (scope.picHeight > 400) {
-        scale = (400 / scope.picHeight);
+      if (crop.picHeight > 400) {
+        scale = (400 / crop.picHeight);
         crop.picHeight *= scale;
         crop.picWidth *= scale;
         console.log(scale);
       }
 
-      console.log('[cords]', scope.picWidth / scope.picHeight);
+      console.log('[cords]', crop.picWidth / crop.picHeight);
       console.log(cords);
       console.log(bounds);
       $scope.cropped = true;
 
-      var rx = scope.picWidth / cords.w
-        , ry = scope.picHeight / cords.h
+      var rx = crop.picWidth / cords.w
+        , ry = crop.picHeight / cords.h
         , canvas = document.createElement("canvas")
         , context = canvas.getContext('2d')
         , imageObj = $window.jQuery('img#preview')[0]

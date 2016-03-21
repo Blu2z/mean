@@ -1,61 +1,62 @@
 'use strict';
 
-// var bounds = {};
+var bounds = {};
 
-// angular.module('meanApp')
-//   .directive('imgCropped', function($window) {
-//     return {
-//       restrict: 'E',
-//       replace: true,
-//       scope: { src:'=', selected:'&' },
-//       //link: function (scope, element, attr) {
-//       link: function (scope, element) {
-//         var myImg
-//           , clear = function() {
-//               if (myImg) {
-//                 myImg.next().remove();
-//                 myImg.remove();
-//                 myImg = undefined;
-//               }
-//             }
-//           ;
+angular.module('meanApp')
+  .directive('imgCropped', function($window) {
+    return {
+      restrict: 'E',
+      replace: true,
+      scope: { src:'=', selected:'&' },
+      //link: function (scope, element, attr) {
+      link: function (scope, element) {
+        var myImg
+          , clear = function() {
+              if (myImg) {
+                myImg.next().remove();
+                myImg.remove();
+                myImg = undefined;
+              }
+            }
+          ;
 
-//         scope.$watch('src', function (nv) {
-//           clear();
-//           console.log('watch');
+        scope.$watch('src', function (nv) {
+          clear();
+          console.log('watch');
 
-//           console.log('[src]');
-//           console.log(nv);
-//           if (!nv) { // newValue
-//             return;
-//           }
+          console.log('[src]');
+          console.log(nv);
+          if (!nv) return;
 
-//           element.after('<img style="max-width: 100%;"/>');
-//           myImg = element.next();
-//           myImg.attr('src', nv);
-//           $window.jQuery(myImg).Jcrop(
-//             { trackDocument: true
-//             , onSelect: function(cords) {
-//                 scope.$apply(function() {
-//                   scope.selected({cords: cords});
-//                 });
-//               }
-//             , aspectRatio: 1.333333333333333333
-//             }
-//           , function () {
-//               // Use the API to get the real image size  
-//               var boundsArr = this.getBounds();
-//               bounds.x = boundsArr[0];
-//               bounds.y = boundsArr[1];
-//             }
-//           );
-//         });
+          element.after('<img style="max-width: 100%;"/>');
+          myImg = element.next();
+          console.log(myImg);
+          myImg.attr('src', nv);
+
+
+          $window.jQuery(myImg).Jcrop({ 
+            // trackDocument: true, 
+            onSelect: function(cords) {
+                scope.$apply(function() {
+                  scope.selected({cords: cords});
+                });
+              }, 
+              aspectRatio: 1.333333333333333333
+            }, function () {
+              // console.log(this.container[0].clientWidth);
+              // Use the API to get the real image size  
+              // var boundsArr = this.getBounds();
+              bounds.x = this.container[0].clientWidth;
+              bounds.y = this.container[0].clientHeight;
+            }
+          );
+        });
         
-//         scope.$on('$destroy', clear);
-//       }
-//       // controller: 'ProfilePicCtrl'
-//     };
-//   });
+        scope.$on('$destroy', clear);
+      }
+      // controller: 'ProfilePicCtrl'
+    };
+  });
 
 // // TODO create proper module
 angular.module('meanApp')
@@ -103,19 +104,21 @@ angular.module('meanApp')
 // angular.module('meanApp').directive("ajFileSelect", function () {
 //   return {
 //     scope: {
-//       "ajChange": "&ajChange"
-//     , "ajModel": "=ajModel"
+//       "ajChange": "&"
+//     , "ajModel": "="
 //     }
-//   , link: function(dirScope, el, $scope) {
-//       el.bind("change", function(e) {
-//         console.debug($scope);
+//   , link: function(scope, element, attrs) {
+//       element.bind("change", function(e) {
+//         console.debug(scope);
+//         console.debug(attrs);
+        
 //         var file = {};
 
-//         file.file = el.context.files[0];
+//         file.file = element.context.files[0];
 
-//         dirScope.ajModel = file;
-//         console.log('ajFileSelect about to call getFile()', dirScope.ajModel);
-//         console.log(dirScope.ajChange);
+//         attrs.ajModel = file;
+//         console.log('ajFileSelect about to call getFile()', attrs.ajModel);
+//         console.log(scope.ajChange);
 //         // ProfilePicCtrl.getFile();
 //       });
 //     },
@@ -123,4 +126,21 @@ angular.module('meanApp')
 //   };
 // });
 
+
+
+angular.module('meanApp').directive("ajFileSelect", function () {
+  return {
+    scope: {
+      "ajChange": "&"
+    , "ajModel": "="
+    }
+  , link: function(scope, element) {
+      element.bind("change", function(e) {
+        scope.ajModel.file = (e.srcElement || e.target).files[0];
+        console.log('ajFileSelect about to call getFile()', scope.ajModel);
+        scope.ajChange();
+      });
+    }
+  };
+});
 

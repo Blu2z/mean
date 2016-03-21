@@ -4,7 +4,7 @@ class AdminPanelController {
   //start-non-standard
   menu = [{
     'title': 'Общие',
-    'state': 'admin.main'
+    'state': 'admin'
   },{
     'title': 'О нас',
     'state': 'admin/about'
