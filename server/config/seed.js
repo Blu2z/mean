@@ -7,7 +7,8 @@
 import Thing from '../api/thing/thing.model';
 import News from '../api/news/news.model';
 import Admin from '../api/admin/admin.model';
-// import User from '../api/user/user.model';
+import Menu from '../api/menu/menu.model';
+import Panel from '../api/admin/panel/panel.model';
 
 Thing.find({}).removeAsync()
   .then(() => {
@@ -88,6 +89,40 @@ Admin.find({}).removeAsync()
       image: '/assets/images/test.jpg'
     });
   });
+
+Menu.find({}).removeAsync()
+.then(() => {
+  Menu.create({
+    'title': 'Home',
+    'state': 'main'
+  },{
+    'title': 'About',
+    'state': 'about'
+  },{
+    'title': 'News',
+    'state': 'news'
+  },{
+    'title': 'Admin',
+    'state': 'admin'
+  });
+});
+
+Panel.find({}).removeAsync()
+.then(() => {
+  Panel.create({
+    'title': 'Общие',
+    'state': 'admin.main'
+  },{
+    'title': 'Меню',
+    'state': 'admin.panel'
+  },{
+    'title': 'Страницы',
+    'state': 'admin.pages'
+  },{
+    'title': 'Новости',
+    'state': 'admin.newsedit'
+  });
+});
 
 // User.find({}).removeAsync()
 //   .then(() => {

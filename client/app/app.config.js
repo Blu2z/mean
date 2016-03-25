@@ -3,6 +3,7 @@
 
 .value("modalConfig", {
 	modalAsk: false
-});
+})
+.value("states", {});
 
 })(angular);

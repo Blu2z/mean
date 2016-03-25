@@ -2,26 +2,19 @@
 
 class NavbarController {
   //start-non-standard
-  menu = [{
-    'title': 'Home',
-    'state': 'main'
-  },{
-    'title': 'About',
-    'state': 'about'
-  },{
-    'title': 'News',
-    'state': 'news'
-  },{
-    'title': 'Admin',
-    'state': 'admin'
-  }];
+  menu = [];
 
   isCollapsed = true;
   //end-non-standard
 
-  constructor() {
+  constructor($http) {
     console.debug('NavbarController is loaded!');
-    }
+    var nav = this;
+
+     $http.get('/api/menu').then(response => {
+      nav.menu = response.data;
+    });
+  }
 }
 
 angular.module('meanApp')

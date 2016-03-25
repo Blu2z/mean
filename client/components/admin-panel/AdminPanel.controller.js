@@ -2,26 +2,21 @@
 
 class AdminPanelController {
   //start-non-standard
-  menu = [{
-    'title': 'Общие',
-    'state': 'admin'
-  },{
-    'title': 'О нас',
-    'state': 'admin/about'
-  },{
-    'title': 'Новости',
-    'state': 'admin.newsedit'
-  },{
-    'title': 'Услуги',
-    'state': 'admin/services'
-  },{
-    'title': 'Галерея',
-    'state': 'admin/galerey'
-  }];
+  nav = [];
   //end-non-standard
 
-  constructor() {
-    }
+  constructor(AdminService) {
+    console.debug('AdminPanelController is loaded!');
+    var admin = this;
+
+    admin.getMenu = () => {
+      AdminService.transport( '/api/admin/panel', 'get', null, (data) => {
+        admin.nav = data;
+      })
+    };
+
+    admin.getMenu();
+  }
 }
 
 angular.module('meanApp')

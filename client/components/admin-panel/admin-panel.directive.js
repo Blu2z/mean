@@ -6,6 +6,9 @@ angular.module('meanApp')
     restrict: 'E',
     controller: 'AdminPanelController',
     controllerAs: 'admin',
+    scope: {
+          menu: '='
+      },
     link: function(scope, element) {
         element.addClass('admin__panel');
       }

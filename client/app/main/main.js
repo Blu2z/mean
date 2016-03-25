@@ -1,7 +1,8 @@
 'use strict';
 
 angular.module('meanApp')
-  .config(function($stateProvider) {
+  .config(function($stateProvider, appConfig) {
+    console.debug(appConfig);
     $stateProvider
       .state('main', {
         url: '/',
@@ -63,5 +64,19 @@ angular.module('meanApp')
         templateUrl: 'components/admin/news/news.html',
         controller: 'AdminNewsController',
         controllerAs: 'news'
+      })
+      .state('admin.main', {
+        url: '/main',
+        resolve: {
+          $title: function() { 
+            return "Admin-panel";
+          }
+        },
+        templateUrl: 'components/admin/main/main.html',
+        controller: 'AdminMainController',
+        controllerAs: 'main'
+      })
+      .decorator('views', function (argument) {
+         // body...  
       });
   });
