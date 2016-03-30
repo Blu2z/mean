@@ -9,6 +9,7 @@ import News from '../api/news/news.model';
 import Admin from '../api/admin/admin.model';
 import Menu from '../api/menu/menu.model';
 import Panel from '../api/admin/panel/panel.model';
+import State from '../api/states/states.model';
 
 Thing.find({}).removeAsync()
   .then(() => {
@@ -121,6 +122,67 @@ Panel.find({}).removeAsync()
   },{
     'title': 'Новости',
     'state': 'admin.newsedit'
+  });
+});
+
+State.find({}).removeAsync()
+.then(() => {
+  State.create({
+    'name': 'main',
+    'url': '/',
+    'parent' : '',
+    'abstract': false,
+    'templateUrl': 'app/main/main.html',
+    'controller': 'MainController',
+    'controllerAs': 'main'
+  },{
+    'name': 'about',
+    'url': '/about',
+    'parent' : '',
+    'abstract': false,
+    'templateUrl': 'components/about/about.html',
+    'controller': 'AboutController',
+    'controllerAs': 'about'
+  },{
+    'name': 'news',
+    'url': '/news',
+    'parent' : '',
+    'abstract': false,
+    'templateUrl': 'components/news/news.html',
+    'controller': 'NewsController',
+    'controllerAs': 'news'
+  },{
+    'name': 'admin',
+    'url': '/admin',
+    'parent' : '',
+    'abstract': false,
+    'templateUrl': 'components/admin/admin.html',
+    'controller': 'AdminController',
+    'controllerAs': 'admin'
+  },{
+    'name': 'admin.newsedit',
+    'url': '/news',
+    'parent' : '',
+    'abstract': false,
+    'templateUrl': 'components/admin/news/news.html',
+    'controller': 'AdminNewsController',
+    'controllerAs': 'news'
+  },{
+    'name': 'admin.main',
+    'url': '/main',
+    'parent' : '',
+    'abstract': false,
+    'templateUrl': 'components/admin/main/main.html',
+    'controller': 'AdminMainController',
+    'controllerAs': 'main'
+  },{
+    'name': 'admin.pages',
+    'url': '/pages',
+    'parent' : '',
+    'abstract': false,
+    'templateUrl': 'components/admin/pages/pages.html',
+    'controller': 'AdminPagesController',
+    'controllerAs': 'pages'
   });
 });
 

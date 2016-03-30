@@ -13,7 +13,7 @@ class AdminService {
         // console.debug(obj);
         $http[method](url, obj)
           .then(response => {
-            if(response.notAdmin) {
+            if(response.data.notAdmin) {
               vm.notification.error({message: 'Необходима авторизация!', delay: 2500});
               vm.state.go('login');
             } else {

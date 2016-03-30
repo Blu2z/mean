@@ -1,0 +1,49 @@
+<div class="container container__news">
+	<h1>States</h1>
+	<p>
+		<!-- {{pages.data}} -->
+		<!-- <text-angular name="htmlcontent" ng-model="news.testNews.text" ta-disabled='disabled'></text-angular> -->
+	</p>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>name</th>
+				<th>url</th>
+				<th>templateUrl</th>
+				<th>controller</th>
+				<th>controllerAs</th>
+				<th>action</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<input class="form-control" ng-model="filterPage">
+			</tr>
+			<tr>
+				<td><input class="form-control" ng-model="pages.testPages.name"></td>
+				<td><input class="form-control" ng-model="pages.testPages.url"></td>
+				<td><input class="form-control" ng-model="pages.testPages.templateUrl"></td>
+				<td><input class="form-control" ng-model="pages.testPages.controller"></td>
+				<td><input class="form-control" ng-model="pages.testPages.controllerAs"></td>
+				<td>
+					<button class="btn btn-primary" ng-click="news.addNews()">Add State</button>
+				</td>
+			</tr>
+			<tr ng-repeat="page in pages.data | filter:{name: filterPage}">
+				<td>{{page.name}}</td>
+				<td>{{page.url}}</td>
+				<td>{{page.templateUrl}}</td>
+				<td>{{page.controller}}</td>
+				<td>{{page.controllerAs}}</td>
+				<td>
+					<button class="btn btn-danger" ng-click='news.confirmDelete(oneNews.name, oneNews._id)' tooltip="Удалить">
+						<i class="fa fa-trash-o"></i>
+					</button>
+					<button class="btn btn-warning" ng-click='news.editNews(oneNews._id, oneNews.name, oneNews.text)' tooltip="Редактировать">
+						<i class="fa fa-pencil"></i>
+					</button>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
