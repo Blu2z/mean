@@ -20,16 +20,19 @@ angular.module('meanApp', [
   'ngResource',
   'ui.sortable', 'ui.filters', 'ui.focusblur'
 ])
-  .config(function($urlRouterProvider, $locationProvider, $stateProvider) {
-    $urlRouterProvider
-      .otherwise('/');
+  .config(function($urlRouterProvider, $locationProvider, $stateProvider) {  
+
+    $urlRouterProvider.deferIntercept();
 
     $urlRouterProviderRef = $urlRouterProvider;
     
-    $locationProvider.html5Mode(false);
+    // $locationProvider.html5Mode(false);
     $stateProviderRef = $stateProvider;
+
+    $urlRouterProvider
+      .otherwise('/');
     
-    // $locationProvider.html5Mode(true);
+    $locationProvider.html5Mode(true);
   })
   .config(function(NotificationProvider) { 
     NotificationProvider.setOptions({ 
@@ -43,7 +46,6 @@ angular.module('meanApp', [
     }); 
   });
 
-
 // class getStates {
 
 //   constructor(q, $rootScope, $state, $http, AdminService) {
@@ -54,13 +56,16 @@ angular.module('meanApp', [
 // angular.module('meanApp')
 //   .run('getStates', getStates);
 
-
-
-
-
 angular.module('meanApp')
-  .run(['$q', '$rootScope', '$state', '$http',
-  function ($q, $rootScope, $state, $http) {
+  .run(['$q', '$rootScope', '$state', '$http', '$urlRouter',
+  function ($q, $rootScope, $state, $http, $urlRouter) {
+
+    function constructTpl(argument) {
+      console.debug(this);
+      return '<div class="test" ng-include="\'' + this + '\'"></div>';
+    };
+
+    // ng-include="'app/view.html'"
     $http.get('api/states')
     .success(function(data) {
       angular.forEach(data, function (value, key) { 
@@ -68,7 +73,8 @@ angular.module('meanApp')
             "url": value.url,
             "parent" : value.parent,
             "abstract": value.abstract,
-            "templateUrl": value.templateUrl,
+            "template": constructTpl.call(value.templateUrl),
+            // "templateUrl": constructTpl.call(value.templateUrl),
             "controller": value.controller,
             "controllerAs": value.controllerAs
           };
@@ -80,9 +86,9 @@ angular.module('meanApp')
           // });
 
           $stateProviderRef.state(value.name, state);
-          // console.debug(state);
       });
-
-      $state.go("main");    
+      $urlRouter.sync();
+      $urlRouter.listen();
+      // $state.go("main"); 
     });
 }]);
