@@ -183,8 +183,25 @@ State.find({}).removeAsync()
     'templateUrl': 'components/admin/pages/pages.html',
     'controller': 'AdminPagesController',
     'controllerAs': 'pages'
+  },{
+    'name': 'admin.pages.constructor',
+    'url': '/pages/new',
+    'parent' : '',
+    'abstract': false,
+    'templateUrl': 'components/admin/constructor/constructor.html',
+    'controller': 'ConstructorAdminController',
+    'controllerAs': 'pages'
+  },{
+    'name': 'login',
+    'url': '/login',
+    'parent' : '',
+    'abstract': false,
+    'templateUrl': 'components/login/login.html',
+    'controller': 'LoginController',
+    'controllerAs': 'login'
   });
 });
+
 
 // User.find({}).removeAsync()
 //   .then(() => {

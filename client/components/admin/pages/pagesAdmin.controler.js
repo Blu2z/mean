@@ -2,12 +2,17 @@
 
 class AdminPagesController {
 
-  constructor($http) {
+  constructor($http, $state) {
     console.debug('AdminPagesController is loaded!');
 
     var pages = this;
 
     pages.$http = $http;
+    pages.state = $state;
+
+    pages.getNew = function () {
+      pages.state.go("admin.pages.constructor");
+    };
 
     pages.getData = function () {
       $http.get('/api/states').then(response => {

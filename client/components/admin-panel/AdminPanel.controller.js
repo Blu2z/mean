@@ -7,6 +7,7 @@ class AdminPanelController {
 
   constructor(AdminService) {
     console.debug('AdminPanelController is loaded!');
+
     var admin = this;
 
     admin.getMenu = () => {
@@ -16,6 +17,7 @@ class AdminPanelController {
     };
 
     admin.getMenu();
+
   }
 }
 

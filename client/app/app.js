@@ -18,7 +18,9 @@ angular.module('meanApp', [
   'oi.file',
   'oi.list',
   'ngResource',
-  'ui.sortable', 'ui.filters', 'ui.focusblur'
+  'ui.sortable',
+  'ui.filters',
+  'ui.focusblur'
 ])
   .config(function($urlRouterProvider, $locationProvider, $stateProvider) {
     $urlRouterProvider
@@ -26,10 +28,10 @@ angular.module('meanApp', [
 
     $urlRouterProviderRef = $urlRouterProvider;
     
-    $locationProvider.html5Mode(false);
+    // $locationProvider.html5Mode(false);
     $stateProviderRef = $stateProvider;
     
-    // $locationProvider.html5Mode(true);
+    $locationProvider.html5Mode(true);
   })
   .config(function(NotificationProvider) { 
     NotificationProvider.setOptions({ 
@@ -82,7 +84,7 @@ angular.module('meanApp')
           $stateProviderRef.state(value.name, state);
           // console.debug(state);
       });
-
-      $state.go("main");    
+      console.debug('states: ', data);
+      $state.go("main");   
     });
 }]);

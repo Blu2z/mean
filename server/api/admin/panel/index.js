@@ -6,8 +6,8 @@ var controller = require('./panel.controller');
 
 var router = express.Router();
 
-router.get('/', controller.index);
-router.get('/:id', controller.show);
+router.get('/', isLoggedIn, controller.index);
+router.get('/:id', isLoggedIn, controller.show);
 // router.post('/', isLoggedIn, controller.create);
 router.put('/:id', isLoggedIn, controller.update);
 router.patch('/:id', isLoggedIn, controller.update);

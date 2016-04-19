@@ -1,0 +1,99 @@
+.ribbon {
+	height: 130px;
+	box-shadow: 0 3px 4px 0 #757575;
+	margin-bottom: 15px;
+	&__name {
+		text-align: center;
+		font-size: 10px;
+	}
+
+	&__block {
+		display: inline-block;
+	}
+
+	.nav-tabs > li.ribbon__main a {
+		background-color: #777;
+		color: #fff;
+	}
+
+	&__separator {
+		width: 1px;
+		height: 75px;
+		display: inline-block;
+		margin: 0 5px;
+		background-color: #eee;
+	}
+
+	&__btn {
+		display: inline-block;
+		height: 70px;
+		cursor: pointer;
+		text-align: center;
+		padding: 5px;
+		border: 1px solid transparent;
+		&:hover,
+		&:focus {
+			border: 1px solid #eee;
+			background-color: #eee;
+		}
+
+		&--full {
+
+		}
+
+		img {
+			width: 30px;
+			height: 30px;
+			margin-bottom: 5px;
+		}
+	}
+
+	&__arr {
+		line-height: 10px;
+
+		i { font-size: 10px;}
+	}
+
+	&__text {
+		font-size: 11px;
+		line-height: 14px;
+	}
+
+	.tab-content {
+		padding: 3px 4px 0;
+    	border-top: 1px solid #ddd;
+    	margin-top: -1px;
+	}
+
+	.nav-tabs.nav-justified, .nav-tabs.nav-justified {border-bottom: 0;}
+
+	.nav-tabs.nav-justified > li > a {text-transform: uppercase;}
+
+	.nav-tabs-justified, .nav-tabs.nav-justified {border-bottom: 0;}
+
+	.nav-justified > li, .nav-tabs.nav-justified > li {width: auto;}
+
+	.nav-justified > li > a {
+		border-radius: 0;
+		padding: 5px 15px;
+		margin-right: 5px;
+	}
+
+}
+
+.box {
+	&__border {
+		border: 1px solid #F3F3F3;
+		height: 6vw;
+		cursor: pointer;
+		&:hover,
+		&:focus {
+			background-color: #eee;
+		}
+	}
+}
+
+.layout_exc {
+	margin: 20px;
+}
+

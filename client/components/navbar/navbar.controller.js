@@ -7,9 +7,14 @@ class NavbarController {
   isCollapsed = true;
   //end-non-standard
 
-  constructor($http) {
+  constructor($http, $state) {
     console.debug('NavbarController is loaded!');
+
     var nav = this;
+
+    nav.state = $state;
+
+    console.log(nav.state);
 
      $http.get('/api/menu').then(response => {
       nav.menu = response.data;

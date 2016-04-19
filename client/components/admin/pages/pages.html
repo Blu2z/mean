@@ -1,3 +1,4 @@
+<div ui-view="" class="view-frame">
 <div class="container container__news">
 	<h1>States</h1>
 	<p>
@@ -17,6 +18,7 @@
 		</thead>
 		<tbody>
 			<tr>
+				<button class="btn btn-primary" ng-click="pages.getNew()">new page</button>
 				<input class="form-control" ng-model="filterPage">
 			</tr>
 			<tr>
@@ -46,4 +48,5 @@
 			</tr>
 		</tbody>
 	</table>
+</div>
 </div>
