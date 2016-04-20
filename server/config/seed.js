@@ -10,6 +10,7 @@ import Admin from '../api/admin/admin.model';
 import Menu from '../api/menu/menu.model';
 import Panel from '../api/admin/panel/panel.model';
 import State from '../api/states/states.model';
+import App from '../api/app/app.model';
 
 Thing.find({}).removeAsync()
   .then(() => {
@@ -141,7 +142,7 @@ State.find({}).removeAsync()
     'parent' : '',
     'abstract': false,
     'templateUrl': 'components/about/about.html',
-    'controller': 'AboutController',
+    'controller': 'MainController',
     'controllerAs': 'about'
   },{
     'name': 'news',
@@ -202,6 +203,129 @@ State.find({}).removeAsync()
   });
 });
 
+App.find({}).removeAsync()
+.then(() => {
+  App.create({
+   mainLayout: { 
+     rows: [
+      { view:'header', position: 'fixed' },
+      { view:'content' },
+      { view:'footer' },
+     ]
+   },
+   pages: [{
+    'name': 'main',
+    'url': '/',
+    'parent' : '',
+    'abstract': false,
+    'templateUrl': 'app/main/main.html',
+    'controller': 'MainController',
+    'controllerAs': 'main',
+    'layout': {
+      rows: [
+        { cols: [
+          { view:'news', class: 'col-md-10', clearfix: true },
+          { view:'history', class: 'col-md-2', clearfix: true }
+        ]},
+      ]
+    }
+  },{
+    'name': 'about',
+    'url': '/about',
+    'parent' : '',
+    'abstract': false,
+    'templateUrl': 'components/about/about.html',
+    'controller': 'MainController',
+    'controllerAs': 'about',
+    'layout': {
+      rows: [
+        { cols: [
+          { view:'news', class: 'col-md-10', clearfix: true },
+          { view:'history', class: 'col-md-2', clearfix: true }
+        ]},
+      ]
+    }
+  },{
+    'name': 'news',
+    'url': '/news',
+    'parent' : '',
+    'abstract': false,
+    'templateUrl': 'components/news/news.html',
+    'controller': 'NewsController',
+    'controllerAs': 'news',
+    'layout': {
+      rows: [
+        { cols: [
+          { view:'news', class: 'col-md-10', clearfix: true },
+          { view:'history', class: 'col-md-2', clearfix: true }
+        ]},
+      ]
+    }
+  },{
+    'name': 'admin',
+    'url': '/admin',
+    'parent' : '',
+    'abstract': false,
+    'templateUrl': 'components/admin/admin.html',
+    'controller': 'AdminController',
+    'controllerAs': 'admin'
+  },{
+    'name': 'admin.newsedit',
+    'url': '/news',
+    'parent' : '',
+    'abstract': false,
+    'templateUrl': 'components/admin/news/news.html',
+    'controller': 'AdminNewsController',
+    'controllerAs': 'news'
+  },{
+    'name': 'admin.main',
+    'url': '/main',
+    'parent' : '',
+    'abstract': false,
+    'templateUrl': 'components/admin/main/main.html',
+    'controller': 'AdminMainController',
+    'controllerAs': 'main'
+  },{
+    'name': 'admin.pages',
+    'url': '/pages',
+    'parent' : '',
+    'abstract': false,
+    'templateUrl': 'components/admin/pages/pages.html',
+    'controller': 'AdminPagesController',
+    'controllerAs': 'pages'
+  },{
+    'name': 'admin.pages.constructor',
+    'url': '/pages/new',
+    'parent' : '',
+    'abstract': false,
+    'templateUrl': 'components/admin/constructor/constructor.html',
+    'controller': 'ConstructorAdminController',
+    'controllerAs': 'pages'
+  },{
+    'name': 'login',
+    'url': '/login',
+    'parent' : '',
+    'abstract': false,
+    'templateUrl': 'components/login/login.html',
+    'controller': 'LoginController',
+    'controllerAs': 'login'
+  }
+  ],
+  menu: [{
+      'title': 'Общие',
+      'state': 'admin.main'
+    },{
+      'title': 'Меню',
+      'state': 'admin.panel'
+    },{
+      'title': 'Страницы',
+      'state': 'admin.pages'
+    },{
+      'title': 'Новости',
+      'state': 'admin.newsedit'
+    }]
+  });
+});
 
 // User.find({}).removeAsync()
 //   .then(() => {

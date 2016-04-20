@@ -15,8 +15,8 @@ class AdminPagesController {
     };
 
     pages.getData = function () {
-      $http.get('/api/states').then(response => {
-        pages.data = response.data;
+      $http.get('/api/app').then(response => {
+        pages.data = response.data[0].pages;
         console.debug(response.data);
       },
       response => {
@@ -24,7 +24,18 @@ class AdminPagesController {
       });
     };
 
+    pages.getDataApp = function () {
+      $http.get('/api/app').then(response => {
+        // pages.data = response.data;
+        console.debug('app', response.data);
+      },
+      response => {
+        this.notification.error({message: 'Ошибка соединения!', delay: 2500});
+      });
+    };
+
     pages.getData();
+    pages.getDataApp();
   }
     
 }

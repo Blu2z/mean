@@ -1,6 +1,13 @@
 (function(angular, undefined) {
   angular.module("meanApp.constants", [])
 
-.constant('_', window._);
+.constant("appConfig", {
+	"userRoles": [
+		"guest",
+		"user",
+		"admin"
+	]
+})
 
+;
 })(angular);

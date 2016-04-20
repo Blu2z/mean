@@ -34,6 +34,13 @@
 	&__container {
 		right: 0;
 		margin-right: 20px;
+		line-height: 15px;
+		a {
+	    	color: #353535;
+	    	&:hover {
+	    		color: #ff2c29;
+	    	}
+	    }
 	}
 
 	.logo {
@@ -41,12 +48,13 @@
 	}
 
 	.contact__socials {
-	    margin-top: 20px;
+	    margin: 20px 0 0;
+	    line-height: 0;
 	}
 }
 
 .copy {
-	margin-top: 10px;
+	margin-top: 5px;
 	font-size: 11px;
 	color: #3C3C3C;
 	text-align: center;

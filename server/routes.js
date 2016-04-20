@@ -18,6 +18,7 @@ export default function(app) {
   app.use('/api/menu', require('./api/menu'));
   app.use('/api/states', require('./api/states'));
   app.use('/api/admin/panel/', require('./api/admin/panel/'));
+   app.use('/api/app/', require('./api/app/'));
   // app.use('/api/admin/*', isLoggedIn, require('./api/news'));
 
   // app.get('/admin/news', isLoggedIn, function(req, res) {

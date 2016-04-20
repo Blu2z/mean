@@ -29,6 +29,9 @@
 .container {
   max-width: 1200px;
   margin: 0 auto;
+  &__news {
+    margin-top: 120px;
+  }
 }
 
 
@@ -36,7 +39,7 @@
 
 .view-container {
   position: relative;
-  margin-top: 120px;
+  // margin-top: 120px;
 }
 
 .view-frame.ng-enter,
