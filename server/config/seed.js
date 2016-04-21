@@ -224,9 +224,12 @@ App.find({}).removeAsync()
     'layout': {
       rows: [
         { cols: [
-          { view:'news', class: 'col-md-10', clearfix: true },
-          { view:'history', class: 'col-md-2', clearfix: true }
-        ]},
+          { view:'app/main/main.html', class: 'col-md-10', clearfix: true },
+          { view:'app/main/main.html', class: 'col-md-6', clearfix: true }
+        ]},{ cols: [
+          { view:'app/main/main.html', class: 'col-md-6', clearfix: true },
+          { view:'app/main/main.html', class: 'col-md-6', clearfix: true }
+        ]}
       ]
     }
   },{
@@ -237,7 +240,7 @@ App.find({}).removeAsync()
     'templateUrl': 'components/about/about.html',
     'controller': 'MainController',
     'controllerAs': 'about',
-    'layout': {
+    'n-layout': {
       rows: [
         { cols: [
           { view:'news', class: 'col-md-10', clearfix: true },
@@ -253,7 +256,7 @@ App.find({}).removeAsync()
     'templateUrl': 'components/news/news.html',
     'controller': 'NewsController',
     'controllerAs': 'news',
-    'layout': {
+    'n-layout': {
       rows: [
         { cols: [
           { view:'news', class: 'col-md-10', clearfix: true },
@@ -333,3 +336,29 @@ App.find({}).removeAsync()
 //       'url' : 'mongodb://<blu2z>:<1234>@mongo.onmodulus.net:27017/Mikha4ot' // looks like mongodb://<user>:<pass>@mongo.onmodulus.net:27017/Mikha4ot
 //     });
 //   });
+
+
+// 'layout': {
+//       rows: [
+//         { cols: [
+//           { view:'app/main/main.html', class: 'col-md-10', clearfix: true },
+//           { view:'app/main/main.html', class: 'col-md-2', clearfix: true },
+//           { view:'app/main/main.html', class: 'col-md-4', clearfix: true },
+//           {rows: [
+//             { view:'news', class: 'col-md-10', clearfix: true },
+//             { view:'history', class: 'col-md-2', clearfix: true },
+//             { view:'footer', class: 'col-md-4', clearfix: true }
+//           ]}
+//         ]},{ cols: [
+//           { view:'news', class: 'col-md-10', clearfix: true },
+//           { view:'history', class: 'col-md-2', clearfix: true },
+//           { view:'footer', class: 'col-md-4', clearfix: true },
+//           {rows: [
+//             { view:'news', class: 'test1', clearfix: true },
+//             { view:'history', class: 'test2', clearfix: true },
+//             { view:'footer', class: 'test3', clearfix: true }
+//           ]}
+//         ]}
+//       ]
+//     }
+//   },{

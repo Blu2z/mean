@@ -63,50 +63,36 @@ angular.module('meanApp')
   function ($q, $rootScope, $state, $http, $urlRouter, _) {
 
     function constructTpl(templateUrl, layout) {
-      console.debug('==================');
-      var txt = '';
+      if(!layout) {
+        console.log('layout', layout);
+        return '<div class="test" ng-include="\'' + templateUrl + '\'"></div>';
+      }
 
-      // var createRows = data => {return '<div class="row">' + data + '</div>'};
-      // var createCol = (text, className) => {return '<div class="' + className + '">' + text + '</div>'};
-      // var createTpl = name => {createCol('ng-include="\'' + name.view + '\'"', name.class)};
-
+      var all = '', temp='', row=0;
       var parseJson = function (data) {
-          console.debug('parse', data);
+        console.log(data);
 
         return _.forEach(data, function (value, key) {
-          // console.log('foreach', key);
+          console.debug('val', value);
 
-          if(value.view) { 
-            console.debug('view!', value)
-            txt += '<div class="' + value.class + '" ng-include="\'' + value.view + '\'"></div>'; 
-            // console.debug('<div class="' + value.class + '" ng-include="\'' + value.view + '\'"></div>');
-            // return '<div class="' + value.class + '" ng-include="\'' + value.view + '\'"></div>' ;
-            
+          if(value.view || key ==='views') { 
+            temp += '<div class="' + value.class + '" ng-include="\'' + value.view + '\'"></div>';
           }
-          if(key === 'rows') { 
-            console.debug('rows!', value)
-            txt += '<div class="row">' + parseJson(value[0]) + '</div>';
-            // console.debug( '<div class="row">' + parseJson(value[0]) + '</div>' );
-            // return '<div class="row">' + parseJson(value[0]) + '</div>';
+          if(key === 'rows' || value.rows) { 
+            // row = 1;
+            parseJson(value);
+            all += '<div class="row">' + temp + '</div>';
           }
-          if(key === 'cols') { 
-            console.debug('cols!', value)
-            // txt += '' + parseJson(value)
-            parseJson(value)
-          }
-
-          return
-
+          if(key === 'cols' || value.cols) { parseJson(value) }
         })
-
-        
-
       };
 
       parseJson(layout);
-      console.debug(txt);
+      console.debug(all);
 
-      return '<div class="test" ng-include="\'' + templateUrl + '\'"></div>';
+      return '<div class="container__news">' + all + '</div>';
+
+      // return '<div class="test" ng-include="\'' + templateUrl + '\'"></div>';
     };
 
 
