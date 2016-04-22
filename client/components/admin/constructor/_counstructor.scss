@@ -1,6 +1,6 @@
 .ribbon {
 	height: 130px;
-	box-shadow: 0 3px 4px 0 #757575;
+	box-shadow: 0 1px 4px 0 #757575;
 	margin-bottom: 15px;
 	&__name {
 		text-align: center;
@@ -26,9 +26,7 @@
 		border: 1px solid #D6D6D6;
 		padding: 7px;
 		padding-right: 20px;
-		ul {
-			margin-bottom: 0;
-		}
+		ul { margin-bottom: 0;}
 		li {
 			display: inline-block;
 			height: 54px;

@@ -17,35 +17,35 @@ class NewsController {
 
   }
 
-  addNews() {
-      console.log(this);
-      if (this.testNews) {
+  // addNews() {
+  //     console.log(this);
+  //     if (this.testNews) {
 
-        this.$http.post('/api/news', { 
-          name: this.testNews.name,
-          text: this.testNews.text,
-          image: this.testNews.image
+  //       this.$http.post('/api/news', { 
+  //         name: this.testNews.name,
+  //         text: this.testNews.text,
+  //         image: this.testNews.image
 
-        }).success(response => {
+  //       }).success(response => {
 
-          this.awesomeNews.unshift(response);
-          this.notification.success({message: 'Данные успешно добавлены в базу!', delay: 1500});
-          this.testNews = '';
+  //         this.awesomeNews.unshift(response);
+  //         this.notification.success({message: 'Данные успешно добавлены в базу!', delay: 1500});
+  //         this.testNews = '';
 
-        }).error(response => {
+  //       }).error(response => {
 
-          this.notification.error({message: 'Ошибка соединения!', delay: 2500});
-          this.testNews = '';
+  //         this.notification.error({message: 'Ошибка соединения!', delay: 2500});
+  //         this.testNews = '';
           
-        });
+  //       });
 
         
-      }
-    }
+  //     }
+  //   }
 
-  deleteNews(news) {
-    this.$http.delete('/api/news/' + news._id);
-  }
+  // deleteNews(news) {
+  //   this.$http.delete('/api/news/' + news._id);
+  // }
 }
 
 angular.module('meanApp')

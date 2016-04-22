@@ -221,17 +221,33 @@ App.find({}).removeAsync()
     'templateUrl': 'app/main/main.html',
     'controller': 'MainController',
     'controllerAs': 'main',
-    'layout': {
-      rows: [
-        { cols: [
-          { view:'app/main/main.html', class: 'col-md-10', clearfix: true },
-          { view:'app/main/main.html', class: 'col-md-6', clearfix: true }
-        ]},{ cols: [
-          { view:'app/main/main.html', class: 'col-md-6', clearfix: true },
-          { view:'app/main/main.html', class: 'col-md-6', clearfix: true }
-        ]}
-      ]
-    }
+    'layout': [{
+      tag: 'div',
+      class: 'container-fluid',
+      children: [{
+        tag: 'div',
+        class: 'row',
+        children: [{
+          tag: 'div',
+          class: 'col-sm-12',
+          children: [{
+            tag: 'news'
+          }]
+        }]
+      }]
+    },{
+        tag: 'div',
+        class: 'container',
+        children: [{
+          tag: 'div',
+          class: 'col-md-6',
+          children: [{
+            tag: 'formabout'
+          },{
+            tag: 'map'
+          }]
+        }]
+      }]
   },{
     'name': 'about',
     'url': '/about',

@@ -20,7 +20,8 @@ angular.module('meanApp', [
   'ngResource',
   'ui.sortable',
   'ui.filters',
-  'ui.focusblur'
+  'ui.focusblur',
+  'ymaps'
 ])
   .config(function($urlRouterProvider, $locationProvider, $stateProvider) {  
 
@@ -64,33 +65,66 @@ angular.module('meanApp')
 
     function constructTpl(templateUrl, layout) {
       if(!layout) {
-        console.log('layout', layout);
         return '<div class="test" ng-include="\'' + templateUrl + '\'"></div>';
       }
 
-      var all = '', temp='', row=0;
-      var parseJson = function (data) {
-        console.log(data);
+      var result = '';
+      
 
-        return _.forEach(data, function (value, key) {
-          console.debug('val', value);
+      console.debug(layout);
 
-          if(value.view || key ==='views') { 
-            temp += '<div class="' + value.class + '" ng-include="\'' + value.view + '\'"></div>';
+      var parseLayout = function (data) {
+        var txt = '';
+        var child, cls;
+
+        angular.forEach(data, function (value, key) {
+
+          cls = value.class ? 'class="' + value.class + '"' : '';
+          child = value.children ? parseLayout(value.children) : '';
+
+          if (data[1]) {
+            txt = `<${value.tag} ${cls}>${child}</${value.tag}>`
+            console.debug('+=');
+            result += txt;
+          } else {
+            txt = `<${value.tag} ${cls}>${child}</${value.tag}>`
+            
           }
-          if(key === 'rows' || value.rows) { 
-            // row = 1;
-            parseJson(value);
-            all += '<div class="row">' + temp + '</div>';
-          }
-          if(key === 'cols' || value.cols) { parseJson(value) }
-        })
+          
+          console.debug('data: ', data);
+          console.debug('txt: ', txt);
+        });
+        
+        return txt
       };
 
-      parseJson(layout);
-      console.debug(all);
+      console.debug(parseLayout(layout));
+      console.debug('result: ', result);
+      // return parseLayout(layout);
 
-      return '<div class="container__news">' + all + '</div>';
+      // var all = '', temp='', row=0;
+      // var parseJson = function (data) {
+      //   console.log(data);
+
+      //   return _.forEach(data, function (value, key) {
+      //     console.debug('val', value);
+
+      //     if(value.view || key ==='views') { 
+      //       temp += '<div class="' + value.class + '" ng-include="\'' + value.view + '\'"></div>';
+      //     }
+      //     if(key === 'rows' || value.rows) { 
+      //       // row = 1;
+      //       parseJson(value);
+      //       all += '<div class="row">' + temp + '</div>';
+      //     }
+      //     if(key === 'cols' || value.cols) { parseJson(value) }
+      //   })
+      // };
+
+      // parseJson(layout);
+      // console.debug(all);
+
+      // return '<div class="container__news">' + all + '</div>';
 
       // return '<div class="test" ng-include="\'' + templateUrl + '\'"></div>';
     };
