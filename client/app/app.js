@@ -83,7 +83,7 @@ angular.module('meanApp')
           child = value.children ? parseLayout(value.children) : '';
 
           if (data[1]) {
-            txt = `<${value.tag} ${cls}>${child}</${value.tag}>`
+            txt += `<${value.tag} ${cls}>${child}</${value.tag}>`
             console.debug('+=');
             result += txt;
           } else {
@@ -98,9 +98,9 @@ angular.module('meanApp')
         return txt
       };
 
-      console.debug(parseLayout(layout));
+      // console.debug(parseLayout(layout));
       console.debug('result: ', result);
-      // return parseLayout(layout);
+      return parseLayout(layout);
 
       // var all = '', temp='', row=0;
       // var parseJson = function (data) {
