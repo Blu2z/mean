@@ -68,10 +68,8 @@ angular.module('meanApp')
         return '<div class="test" ng-include="\'' + templateUrl + '\'"></div>';
       }
 
-      var result = '';
-      
-
-      console.debug(layout);
+      // var result = '';
+      // console.debug(layout);
 
       var parseLayout = function (data) {
         var txt = '';
@@ -84,51 +82,22 @@ angular.module('meanApp')
 
           if (data[1]) {
             txt += `<${value.tag} ${cls}>${child}</${value.tag}>`
-            console.debug('+=');
-            result += txt;
+            // console.debug('+=');
+            // result += txt;
           } else {
             txt = `<${value.tag} ${cls}>${child}</${value.tag}>`
             
           }
-          
-          console.debug('data: ', data);
-          console.debug('txt: ', txt);
+          // console.debug('data: ', data);
+          // console.debug('txt: ', txt);
         });
         
         return txt
       };
 
-      // console.debug(parseLayout(layout));
-      console.debug('result: ', result);
+      // console.debug('result: ', result);
       return parseLayout(layout);
-
-      // var all = '', temp='', row=0;
-      // var parseJson = function (data) {
-      //   console.log(data);
-
-      //   return _.forEach(data, function (value, key) {
-      //     console.debug('val', value);
-
-      //     if(value.view || key ==='views') { 
-      //       temp += '<div class="' + value.class + '" ng-include="\'' + value.view + '\'"></div>';
-      //     }
-      //     if(key === 'rows' || value.rows) { 
-      //       // row = 1;
-      //       parseJson(value);
-      //       all += '<div class="row">' + temp + '</div>';
-      //     }
-      //     if(key === 'cols' || value.cols) { parseJson(value) }
-      //   })
-      // };
-
-      // parseJson(layout);
-      // console.debug(all);
-
-      // return '<div class="container__news">' + all + '</div>';
-
-      // return '<div class="test" ng-include="\'' + templateUrl + '\'"></div>';
     };
-
 
     function constructCtrl (layout) {
        

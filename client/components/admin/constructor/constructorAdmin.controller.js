@@ -7,6 +7,7 @@ class ConstructorAdminController {
 
     var pages = this;
 
+    pages.name = "one";
   }
     
 }

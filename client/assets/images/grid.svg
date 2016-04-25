@@ -1,0 +1,172 @@
+<?xml version="1.0"?>
+<svg
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:cc="http://web.resource.org/cc/"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+    xmlns:ns1="http://sozi.baierouge.fr"
+    viewBox="0 0 500 500"
+  >
+  <desc
+    >Graph Paper
+    From the Graphing Calculator Toolbar, a Firefox Addon written by Jay Nick
+    Used in the book, Learn SVG Interactively, written by Jay Nick.
+    Used in the book, I Love to Doodle, with SVG illustrations by Jay Nick.
+    Both books are available in as eBooks from cattocreations.com
+    Written by Jay Nick
+    Handcoding SVG since 2001
+    Author of eBook, Learn SVG Interactively, published by Catto Creations, LLC
+    http://www.jaynick.com
+    Learn SVG Interactively and I Love to Doodle are published by Catto Creations, LLC
+    Catto Creations mission is Family, Literacy, and Enrichment
+    Visit http://www.cattocreations.com for award winning children's eBooks
+    Free ePub3 eBooks at http://www.cattocreations.com/ePub3.html</desc
+  >
+  <style
+      type="text/css"
+    >.blue {fill:none;stroke:lightblue;}
+    .maingridx {stroke-dasharray:0.5,49,0.5,0;stroke-width:500;}
+    .maingridy {stroke-dasharray:0.5,49,0.5,0;stroke-width:500;}
+    .gridx {stroke-dasharray:0.2,9.6,0.2,0;stroke-width:500;}
+    .gridy {stroke-dasharray:0.2,9.6,0.2,0;stroke-width:500;}</style
+  >
+  <g
+      transform="translate(0) scale(1)"
+    >
+    <line
+        y1="250"
+        x2="500"
+        y2="250"
+        class="blue gridx"
+    />
+    <line
+        x2="250"
+        x1="250"
+        y2="500"
+        class="blue gridy"
+    />
+    <line
+        y1="250"
+        x2="500"
+        y2="250"
+        class="blue maingridx"
+    />
+    <line
+        x2="250"
+        x1="250"
+        y2="500"
+        class="blue maingridy"
+    />
+  </g
+  >
+  <metadata
+    >
+    <rdf:RDF
+      >
+      <cc:Work
+        >
+        <dc:format
+          >image/svg+xml</dc:format
+        >
+        <dc:type
+            rdf:resource="http://purl.org/dc/dcmitype/StillImage"
+        />
+        <cc:license
+            rdf:resource="http://creativecommons.org/licenses/publicdomain/"
+        />
+        <dc:publisher
+          >
+          <cc:Agent
+              rdf:about="http://openclipart.org/"
+            >
+            <dc:title
+              >Openclipart</dc:title
+            >
+          </cc:Agent
+          >
+        </dc:publisher
+        >
+        <dc:title
+          >Plain Graph Paper</dc:title
+        >
+        <dc:date
+          >2013-10-04T19:51:51</dc:date
+        >
+        <dc:description
+          >From the Graphing Calculator Toolbar, a Firefox Addon written by Jay Nick. SVG code can be inserted into an SVG image then scaled and positioned where desired.</dc:description
+        >
+        <dc:source
+          >https://openclipart.org/detail/184567/plain-graph-paper-by-jaynick-184567</dc:source
+        >
+        <dc:creator
+          >
+          <cc:Agent
+            >
+            <dc:title
+              >JayNick</dc:title
+            >
+          </cc:Agent
+          >
+        </dc:creator
+        >
+        <dc:subject
+          >
+          <rdf:Bag
+            >
+            <rdf:li
+              >50k</rdf:li
+            >
+            <rdf:li
+              >chart</rdf:li
+            >
+            <rdf:li
+              >engineering</rdf:li
+            >
+            <rdf:li
+              >graph</rdf:li
+            >
+            <rdf:li
+              >graph paper</rdf:li
+            >
+            <rdf:li
+              >handcoded</rdf:li
+            >
+            <rdf:li
+              >icon</rdf:li
+            >
+            <rdf:li
+              >math</rdf:li
+            >
+            <rdf:li
+              >science</rdf:li
+            >
+          </rdf:Bag
+          >
+        </dc:subject
+        >
+      </cc:Work
+      >
+      <cc:License
+          rdf:about="http://creativecommons.org/licenses/publicdomain/"
+        >
+        <cc:permits
+            rdf:resource="http://creativecommons.org/ns#Reproduction"
+        />
+        <cc:permits
+            rdf:resource="http://creativecommons.org/ns#Distribution"
+        />
+        <cc:permits
+            rdf:resource="http://creativecommons.org/ns#DerivativeWorks"
+        />
+      </cc:License
+      >
+    </rdf:RDF
+    >
+  </metadata
+  >
+</svg
+>

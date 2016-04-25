@@ -232,6 +232,8 @@ App.find({}).removeAsync()
           class: 'col-sm-12',
           children: [{
             tag: 'news'
+          },{
+            tag: 'formabout'
           }]
         }]
       }]
@@ -244,7 +246,7 @@ App.find({}).removeAsync()
           children: [{
             tag: 'formabout'
           },{
-            tag: 'map'
+            tag: 'formabout'
           }]
         }]
       }]

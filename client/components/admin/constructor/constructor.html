@@ -36,14 +36,36 @@
     <div class="ribbon__separator"></div>
     <div class="ribbon__block">
       <div class="ribbon__galery">
-        <ul>
-          <li><img src="assets/images/grid-1.jpg" alt="grid-1"></li>
-          <li><img src="assets/images/grid-2.jpg" alt="grid-2"></li>
-          <li><img src="assets/images/grid-3.jpg" alt="grid-3"></li>
-          <li><img src="assets/images/grid-4.jpg" alt="grid-4"></li>
-        </ul>
+        <form name="myForm">
+          <ul>
+            <li>
+              <label>
+                <input type="radio" ng-model="pages.name" value="one">
+                <img src="assets/images/grid-1.jpg" alt="grid-1">
+              </label>
+            </li>
+            <li>
+              <label>
+                <input type="radio" ng-model="pages.name" value="two">
+                <img src="assets/images/grid-2.jpg" alt="grid-2">
+              </label>
+            </li>
+            <li>
+              <label>
+                <input type="radio" ng-model="pages.name" value="three">
+                <img src="assets/images/grid-3.jpg" alt="grid-3">
+              </label>
+            </li>
+            <li>
+              <label>
+              <input type="radio" ng-model="pages.name" value="four">
+                <img src="assets/images/grid-4.jpg" alt="grid-4">
+              </label>
+            </li>
+          </ul>
+        </form>
       </div>
-      <div class="ribbon__name">Choise grid</div>
+      <div class="ribbon__name">Choise grid {{pages.name}} </div>
     </div>
     <div class="ribbon__separator"></div>
 	</tab>
@@ -61,9 +83,9 @@
 
 </tabset>
 
-<div class="container">
+<div class="container-fluid">
   <div class="layout_exc">
-    <div class="row">
+    <!-- <div class="row">
       <div class="col-sm-1 box__border"></div>
       <div class="col-sm-1 box__border"></div>
       <div class="col-sm-1 box__border"></div>
@@ -132,6 +154,6 @@
       <div class="col-sm-1 box__border"></div>
       <div class="col-sm-1 box__border"></div>
       <div class="col-sm-1 box__border"></div>
-    </div>
+    </div> -->
   </div>
 </div>
