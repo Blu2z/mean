@@ -32,12 +32,24 @@
 			height: 54px;
 			width: 54px;
 			margin-right: 5px;
-			border: 1px solid #D6D6D6;
 			vertical-align: top;
+			cursor: pointer;
+		}
+	}
+
+	input[type="radio"] {
+		display:none;
+		&  + label {
+			border: 1px solid #D6D6D6;
 			cursor: pointer;
 			&:hover {
 				border: 1px solid #000;
 			}
+		}
+
+		&:checked + label {
+		    border-color: #428BD3;
+	    	box-shadow: 0px 0px 3px 0px #4299D8;
 		}
 	}
 
@@ -128,9 +140,29 @@
 }
 
 .layout_exc {
+	padding-top: 20px;
 	margin: 20px;
 	background: #fff url(../../../assets/images/grid.svg) 1px 1px repeat;
 	min-height: 500px;
+	background-size: 1000px;
+	text-align: center;
+	overflow: hidden;
+	& > .view-container2 {
+		display: inline-block;
+		text-align: left;
+		& > div {
+			background-color: #fff;
+			border: 2px solid #77787B;
+		}
+	}
+	.head {
+		position: absolute;
+	}
+	.row,
+	.container,
+	.col-sm-4 {
+		// outline: 1px solid #428BD3;
+	}
 }
 
 .testing {
@@ -146,6 +178,7 @@
     	display: inline-block;
     	height: 100%;
     	width: 200px;
+    	float: left;
     	h2 {
 		    font-size: 26px;
 		    color: #eee;
@@ -176,4 +209,26 @@
     	}
     }
 }
+
+.testing-box {
+	min-height: 9vw;
+    background-color: #E8E8E8;
+    margin: 1.5vw 0 10px;
+    border: 1px solid #777;
+	&--80 {
+		margin: 10px 0;
+		min-height: 80px;
+	}
+	&--300 {
+		margin: 10px 0;
+		min-height: 300px;
+	}
+}
+
+.test{
+	&__head {min-height: 100px;}
+	&__form {margin-top: 50px;}
+}
+
+
 
