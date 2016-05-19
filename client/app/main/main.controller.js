@@ -5,10 +5,17 @@
 class MainController {
 
   constructor($http) {
+
     this.$http = $http;
     this.awesomeThings = [];
+    // this = $scope;
 
+    // ==============
+
+    // ===============
+    
     console.debug('MainController is loaded!');
+
 
     $http.get('/api/things').then(response => {
       this.awesomeThings = response.data;
@@ -31,3 +38,6 @@ angular.module('meanApp')
   .controller('MainController', MainController);
 
 })();
+
+// ==========================
+

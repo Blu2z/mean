@@ -5,8 +5,8 @@ angular.module('meanApp')
     return {
       templateUrl: 'components/about/formAbout.html',
       restrict: 'E',
-	  	controller: function () {
-	  		return false; 
+	  	controller: function() {
+	  		return false;
 	  	},
    		controllerAs: 'formabout'
     };

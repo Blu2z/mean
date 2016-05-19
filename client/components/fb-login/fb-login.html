@@ -1,0 +1,30 @@
+<div class="fb-login">
+    <div class="row">
+        <button class="btn btn-primary" ng-click="login()" ng-disabled="loginStatus.status == 'connected'">Login Facebook</button>
+        &nbsp;
+        <button class="btn btn-danger" ng-click="logout()" ng-disabled="!loginStatus || loginStatus.status != 'connected'">Logout</button>
+        &nbsp;
+        <button class="btn btn-success" ng-click="share()">FB.ui</button>
+        <button class="btn btn-success" ng-click="updateApiMe2()">e-mail</button>
+    </div>
+
+    <br>
+
+    <div class="row">
+        <div class="col-md-6">
+            <h4 class="text-info">loginStatus:</h4>
+            <div class="code-block" hljs source="loginStatusJSON">{{fb.loginStatus.status}}</div>
+        </div>
+        <div class="col-md-6">
+            <h4 class="text-info">api('/me'):</h4>
+            <div class="code-block" hljs source="apiMeJSON">{{fb.apiMe}}</div>
+        </div>
+    </div>
+
+    <div
+        class="fb-like"
+        data-share="true"
+        data-width="450"
+        data-show-faces="true">
+    </div>
+</div>

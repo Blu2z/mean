@@ -228,6 +228,12 @@ App.find({}).removeAsync()
         tag: 'div',
         class: 'row',
         children: [{
+          tag: 'fb-login'
+        }]
+      },{
+        tag: 'div',
+        class: 'row',
+        children: [{
           tag: 'div',
           class: 'col-sm-12',
           children: [{

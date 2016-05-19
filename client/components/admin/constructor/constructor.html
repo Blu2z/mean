@@ -84,7 +84,21 @@
     <div class="ribbon__separator"></div>
 	</tab>
 	<tab heading="modules">
-
+    <div class="ribbon__block">
+      <div class="ribbon__galery">
+        <form name="myForm">
+          <ul>
+            <li ng-repeat="obj in pages.modules" ng-draggable draggable="true">
+              <input type="radio" ng-model="pages.module" value="{{$index}}" id="{{obj.name}}">
+              <label for="{{obj.name}}">
+                <img ng-src="{{obj.img}}" alt="{{obj.name}}">
+              </label>
+            </li>
+          </ul>
+        </form>
+      </div>
+      <div class="ribbon__name">Modules </div>
+    </div>
 	</tab>
 
 	<tab heading="pages">
