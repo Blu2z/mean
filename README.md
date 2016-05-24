@@ -1,6 +1,7 @@
 # mean
 
 [![Build Status](https://travis-ci.org/Blu2z/mean.svg?branch=master)](https://travis-ci.org/Blu2z/mean)
+[![Coverage Status](https://coveralls.io/repos/github/Blu2z/mean/badge.svg?branch=master)](https://coveralls.io/github/Blu2z/mean?branch=master)
 
 This project was generated with the [Angular Full-Stack Generator](https://github.com/DaftMonk/generator-angular-fullstack) version 3.3.0.
 
