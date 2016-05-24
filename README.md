@@ -3,6 +3,7 @@
 [![Build Status](https://travis-ci.org/Blu2z/mean.svg?branch=master)](https://travis-ci.org/Blu2z/mean)
 [![Coverage Status](https://coveralls.io/repos/github/Blu2z/mean/badge.svg?branch=master)](https://coveralls.io/github/Blu2z/mean?branch=master)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/f9c35a2873624336ba8e9f1b91068311)](https://www.codacy.com/app/blu2z/mean?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Blu2z/mean&amp;utm_campaign=Badge_Grade)
+[![Dependency Status](https://david-dm.org/blu2z/mean.svg)](https://david-dm.org/blu2z/mean)
 
 This project was generated with the [Angular Full-Stack Generator](https://github.com/DaftMonk/generator-angular-fullstack) version 3.3.0.
 
