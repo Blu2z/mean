@@ -60,7 +60,7 @@ angular.module('meanApp')
   function($http, $urlRouter) {
 
     function constructTpl(templateUrl, layout) {
-      if (!layout) {return '<div class="test" ng-include="\'' + templateUrl + '\'"></div>';}
+    if (!layout) {return '<div class="test" ng-include="\'' + templateUrl + '\'"></div>';}
 
       var parseLayout = function(data) {
         var txt = '';

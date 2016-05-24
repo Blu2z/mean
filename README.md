@@ -1,5 +1,7 @@
 # mean
 
+[![Build Status](https://travis-ci.org/Blu2z/mean.svg?branch=master)](https://travis-ci.org/Blu2z/mean)
+
 This project was generated with the [Angular Full-Stack Generator](https://github.com/DaftMonk/generator-angular-fullstack) version 3.3.0.
 
 ## Getting Started
