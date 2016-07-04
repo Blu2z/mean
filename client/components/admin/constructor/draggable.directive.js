@@ -2,53 +2,69 @@
 
 angular.module('meanApp')
   .directive('ngDraggable', ($document) => ({
-    link: function(scope, element, attr) {
-			var startX = 0;
-			var startY = 0;
-			var deltaX = 0;
-			var deltaY = 0;
-			var el;
+    link: function (scope, element, attr) {
+      var startX = 0;
+      var startY = 0;
+      var deltaX = 0;
+      var deltaY = 0;
+      var el;
 
-			element[0].addEventListener('dragenter', function dragEnter(e) {
-				console.debug('dragenter');
-			}, false);
+      element.context.onclick = function (e) {console.log('click')};
+      element.context.dragstart = function (e) {console.log('dragstart')};
 
-			element.on('mousedown', function(event) {
-				event.preventDefault();
+      element.$on('dragstart', function (e) {
+        console.log('dragstart');
+      })
 
-				el = element.clone().appendTo("body").addClass('movable').attr('draggable', true);
 
-				startX = element.offset().left;
-				startY = element.offset().top;
+      element.on('mousedown', function (event) {
+        // return false
 
-				deltaX = event.pageX - startX;
-				deltaY = event.pageY - startY;
+        event.preventDefault();
 
-				el.css({
-					position: 'absolute',
-					cursor: 'move',
-					top: startY + 'px',
-					left: startX + 'px',
-					zIndex: 9999
-				});
+        $document.trigger('dragOn', event);
 
-				$document.on('mousemove', (event) => {
-					var y = event.pageY;
-					var x = event.pageX;
+        el = element.clone().appendTo("body").addClass('movable').attr('draggable', true);
 
-				el.css({
-					top: y - deltaY + 'px',
-					left: x - deltaX + 'px'
-				});
-				});
+        el.context.ondragStart = function (e) {
+          console.log('dragStart');
+        };
 
-				$document.on('mouseup', (event) => {
-					event.stopPropagation();
+        startX = element.offset().left;
+        startY = element.offset().top;
 
-					el.remove();
-					$document.unbind('mousemove');
-					$document.unbind('mouseup');
-				});
-			})
+        deltaX = event.pageX - startX;
+        deltaY = event.pageY - startY;
+
+        el.css({
+          position: 'absolute',
+          cursor: 'move',
+          top: startY + 'px',
+          left: startX + 'px',
+          zIndex: 9999
+        });
+
+        $document.on('mousemove', (event) => {
+          var y = event.pageY;
+          var x = event.pageX;
+
+          el.css({
+            top: y - deltaY + 'px',
+            left: x - deltaX + 'px'
+          });
+        });
+
+        $document.on('mouseup', (event) => {
+          event.stopPropagation();
+
+          $document.trigger('dragOff', event);
+
+          el.remove();
+          $document.unbind('mousemove');
+          $document.unbind('mouseup');
+        });
+      })
+
+      console.log(element);
     }
   }));
