@@ -11,7 +11,8 @@ class ConstructorAdminController {
       {name: 'one', url: 'components/grids/one.html', img: 'assets/images/grid-1.jpg'},
       {name: 'two', url: 'components/grids/two.html', img: 'assets/images/grid-2.jpg'},
       {name: 'three', url: 'components/grids/three.html', img: 'assets/images/grid-3.jpg'},
-      {name: 'four', url: 'components/grids/four.html', img: 'assets/images/grid-4.jpg'}
+      {name: 'four', url: 'components/grids/four.html', img: 'assets/images/grid-4.jpg'},
+      {name: 'five', url: 'components/grids/five.html', img: 'assets/images/grid-5.jpg'}
     ];
 
     pages.modules =  [

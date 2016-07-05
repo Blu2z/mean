@@ -88,11 +88,12 @@
       <div class="ribbon__galery">
         <form name="myForm">
           <ul>
-            <li ng-repeat="obj in pages.modules" ng-draggable draggable="true">
-              <input type="radio" ng-model="pages.module" value="{{$index}}" id="{{obj.name}}">
-              <label for="{{obj.name}}">
-                <img ng-src="{{obj.img}}" alt="{{obj.name}}">
-              </label>
+            <li ng-repeat="obj in pages.modules">
+              <!--<input type="radio" ng-model="pages.module" value="{{$index}}" id="{{obj.name}}">-->
+              <!--<label for="{{obj.name}}">-->
+                <img ng-src="{{obj.img}}" alt="{{obj.name}}" ng-draggable draggable="true" data-dir="{{obj.name}}">
+              {{obj.name}}
+              <!--</label>-->
             </li>
           </ul>
         </form>
@@ -122,3 +123,4 @@
     </div>
   </div>
 </div>
+

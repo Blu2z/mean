@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('meanApp')
-  .directive('ngDraggable', ($document) => ({
+  .directive('ngDraggable', ($document, $sce) => ({
     link: function (scope, element, attr) {
       var startX = 0;
       var startY = 0;
@@ -12,54 +12,54 @@ angular.module('meanApp')
       element.context.onclick = function (e) {console.log('click')};
       element.context.dragstart = function (e) {console.log('dragstart')};
 
-      element.$on('dragstart', function (e) {
-        console.log('dragstart');
-      })
+      // element.$on('dragstart', function (e) {
+      //   console.log('dragstart');
+      // })
 
-
-      element.on('mousedown', function (event) {
+      element.on('mousedown', function(event) {
         // return false
+        console.log('mousedown', element.attr('data-dir'));
 
         event.preventDefault();
 
-        $document.trigger('dragOn', event);
+        $document.trigger('dragOn', element.attr('data-dir'));
 
-        el = element.clone().appendTo("body").addClass('movable').attr('draggable', true);
-
-        el.context.ondragStart = function (e) {
-          console.log('dragStart');
-        };
-
-        startX = element.offset().left;
-        startY = element.offset().top;
-
-        deltaX = event.pageX - startX;
-        deltaY = event.pageY - startY;
-
-        el.css({
-          position: 'absolute',
-          cursor: 'move',
-          top: startY + 'px',
-          left: startX + 'px',
-          zIndex: 9999
-        });
-
-        $document.on('mousemove', (event) => {
-          var y = event.pageY;
-          var x = event.pageX;
-
-          el.css({
-            top: y - deltaY + 'px',
-            left: x - deltaX + 'px'
-          });
-        });
+        // el = element.clone().appendTo("body").addClass('movable').attr('draggable', true);
+        //
+        // el.context.ondragStart = function (e) {
+        //   console.log('dragStart');
+        // };
+        //
+        // startX = element.offset().left;
+        // startY = element.offset().top;
+        //
+        // deltaX = event.pageX - startX;
+        // deltaY = event.pageY - startY;
+        //
+        // el.css({
+        //   position: 'absolute',
+        //   cursor: 'move',
+        //   top: startY + 'px',
+        //   left: startX + 'px',
+        //   zIndex: 9999
+        // });
+        //
+        // $document.on('mousemove', (event) => {
+        //   var y = event.pageY;
+        //   var x = event.pageX;
+        //
+        //   el.css({
+        //     top: y - deltaY + 'px',
+        //     left: x - deltaX + 'px'
+        //   });
+        // });
 
         $document.on('mouseup', (event) => {
           event.stopPropagation();
 
-          $document.trigger('dragOff', event);
+          $document.trigger('dragOff');
 
-          el.remove();
+          // el.remove();
           $document.unbind('mousemove');
           $document.unbind('mouseup');
         });
