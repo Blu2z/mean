@@ -246,5 +246,45 @@ body *.movable {
 	input[type="radio"] {display:none;}
 }
 
+#treeTest {
+	position: absolute;
+	max-width: 520px;
+	height: 100%;
+	right: 0;
+	top: 30px;
+	z-index: 9999;
+	background-color: #4c4c4c;
+	padding-right: 10px;
+	* {
+		position: relative;
+		display: block;
+		min-height: 20px;
+		border: 1px dotted #dadcde;
+		border-right: 0;
+		border-top: 0;
+		padding: 0 0 3px 5px;
+		margin: 5px 0 3px 3px;
+		color: #fff;
+		cursor: pointer;
+		transition: height .5s ease-out .1s;
+		&.unshow {
+			transition: height .5s ease-out .1s;
+			height:23px;
+			overflow: hidden;
+		}
+	}
+	div:before {
+		position: absolute;
+		width: 100%;
+		height: 23px;
+		background: #777777;
+		content: '';
+		top: 0;
+		left: 0;
+		z-index: -1;
+
+	}
+}
+
 
 

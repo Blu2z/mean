@@ -23,6 +23,7 @@ class ConstructorAdminController {
     ];
 
     pages.grid = 0;
+
   }
 }
 
