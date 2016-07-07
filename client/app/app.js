@@ -23,7 +23,8 @@ angular.module('meanApp', [
   'ui.filters',
   'ui.focusblur',
   'ezfb',
-  'ymaps'
+  'ymaps',
+  'meanApp.constructor'
 ])
   .config(function($urlRouterProvider, $locationProvider, $stateProvider) {
 
@@ -94,6 +95,10 @@ angular.module('meanApp')
               "controller": value.controller,
               "controllerAs": value.controllerAs
             };
+
+            if(value.params) {
+              state.params = value.params;
+            }
 
             // angular.forEach(value.views, function (view) {
             //   state.views[view.name] = {

@@ -186,7 +186,7 @@ State.find({}).removeAsync()
     'controllerAs': 'pages'
   },{
     'name': 'admin.pages.constructor',
-    'url': '/pages/new',
+    'url': 'constructor:id',
     'parent' : '',
     'abstract': false,
     'templateUrl': 'components/admin/constructor/constructor.html',
@@ -322,7 +322,10 @@ App.find({}).removeAsync()
     'controllerAs': 'pages'
   },{
     'name': 'admin.pages.constructor',
-    'url': '/pages/new',
+    'url': '/constructor?page',
+    'params': {
+      'page': null
+    },
     'parent' : '',
     'abstract': false,
     'templateUrl': 'components/admin/constructor/constructor.html',

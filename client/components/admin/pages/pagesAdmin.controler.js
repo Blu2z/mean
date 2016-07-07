@@ -11,7 +11,7 @@ class AdminPagesController {
     pages.state = $state;
 
     pages.getNew = function () {
-      pages.state.go("admin.pages.constructor");
+      pages.state.go("admin.pages.constructor", {page: 'new'});
     };
 
     pages.getData = function () {

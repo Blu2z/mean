@@ -15,6 +15,8 @@ angular.module('meanApp')
       var testbox, insertElement;
       var parser = DomParserService;
 
+      
+
       $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams) {
         console.log('stateChange');
 

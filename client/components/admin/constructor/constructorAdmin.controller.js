@@ -7,6 +7,8 @@ class ConstructorAdminController {
 
     var pages = this;
 
+
+
     pages.grids = [
       {name: 'one', url: 'components/grids/one.html', img: 'assets/images/grid-1.jpg'},
       {name: 'two', url: 'components/grids/two.html', img: 'assets/images/grid-2.jpg'},
